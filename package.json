@@ -11,9 +11,12 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.23.1",
+    "bootstrap": "^5.2.3",
     "git": "^0.1.5",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-chartjs": "^5.1.0",
+    "vue-hcaptcha": "^0.1.1",
+    "vue-scenejs": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
