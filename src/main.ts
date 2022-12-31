@@ -6,4 +6,8 @@ import "bootstrap"
 
 import './assets/main.css'
 
-createApp(App).mount('#app')
+import VueFaq from './components/VueFaq.vue'
+
+createApp(App)
+  .component("VueFaq", VueFaq)
+  .mount('#app')
