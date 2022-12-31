@@ -4,8 +4,8 @@
   <p>A few of the more notable projects I have worked on.</p>
 
   <div class="container">
-    <div class="row" v-for="projectRow in projectRows" :key="projectRow[0].title">
-      <div class="column" v-for="project in projectRow" :key="project.title">
+    <div class="row" v-for="row in rows" :key="row[0].title">
+      <div class="column" v-for="project in row" :key="project.title">
         <vue-project :project="project"/>
       </div>
     </div>
@@ -17,19 +17,24 @@
   import { Project, Projects } from './Projects';
   
   export default defineComponent({
+    data() {
+      return {
+        COLUMN_COUNT: 3
+      }
+    },
     computed: {
       projects(): Project[] {
         return Projects
       },
-      projectRows(): Array<Project[]> {
-        let projectRows: Array<Project[]> = [[]]
+      rows(): Array<Project[]> {
+        let rows: Array<Project[]> = [[]]
         this.projects.forEach(it => {
-          if (projectRows[projectRows.length - 1].length == 3) {
-            projectRows.push([])
+          if (rows[rows.length - 1].length == this.COLUMN_COUNT) {
+            rows.push([])
           }
-          projectRows[projectRows.length - 1].push(it)
+          rows[rows.length - 1].push(it)
         })
-        return projectRows
+        return rows
       }
     }
   })
