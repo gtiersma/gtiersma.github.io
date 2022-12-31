@@ -13,11 +13,13 @@
 
   <title-area/>
   <faq-area/>
+  <project-area/>
 </template>
 
 <script setup lang="ts">
 import TitleArea from './components/TitleArea.vue'
 import FaqArea from './components/FaqArea.vue'
+import ProjectArea from './components/ProjectArea.vue'
 </script>
 
 <style scoped>

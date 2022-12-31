@@ -1,13 +1,10 @@
 import { readonly } from "vue";
 
 export class Faq {
-  question: string
-  answer: string
-
-  constructor(question: string, answer: string) {
-    this.question = question
-    this.answer = answer
-  }
+  constructor(
+    readonly question: string,
+    readonly answer: string
+  ) {}
 }
 
 export const Faqs: Faq[] = [
