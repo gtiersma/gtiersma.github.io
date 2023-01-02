@@ -15,6 +15,7 @@
   <faq-area/>
   <project-area/>
   <skill-area/>
+  <contact-area/>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +23,7 @@ import TitleArea from './components/TitleArea.vue'
 import FaqArea from './components/FaqArea.vue'
 import ProjectArea from './components/ProjectArea.vue'
 import SkillArea from './components/SkillArea.vue'
+import ContactArea from './components/ContactArea.vue'
 </script>
 
 <style scoped>
