@@ -1,7 +1,16 @@
 <template>
-  <ul class="nav flex-column">
+  <ul class="nav flex-column nav-menu">
     <li class="nav-item">
       <a class="nav-link" href="#">About Me</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Work I Do</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">What I Know</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact</a>
     </li>
   </ul>
 
@@ -27,4 +36,12 @@ import ContactArea from './components/ContactArea.vue'
 </script>
 
 <style scoped>
+  .nav-menu {
+    position: fixed;
+    left: 0;
+    padding-top: 100px;
+    height: 100vh;
+    background-image: linear-gradient(90deg, #fff, transparent);
+    z-index: 10;
+  }
 </style>
