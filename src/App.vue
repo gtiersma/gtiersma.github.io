@@ -14,12 +14,6 @@
     </li>
   </ul>
 
-  <div class="navbar navbar-expand-sm">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a>
-    </div>
-  </div>
-
   <title-area/>
   <faq-area/>
   <project-area/>
@@ -40,7 +34,7 @@ import ContactArea from './components/ContactArea.vue'
     position: fixed;
     left: 0;
     padding-top: 100px;
-    height: 100vh;
+    height: 100%;
     background-image: linear-gradient(90deg, #fff, transparent);
     z-index: 10;
   }
