@@ -6,7 +6,10 @@
   </div>
 
   <div id="title-area">
-    <h1 id="title">George Tiersma - Junior Fullstack Software Engineer</h1>
+    <title-background/>
+
+    <h1 class="title">George Tiersma</h1>
+    <h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1>
 
     <button class="btn btn-primary">View Resume</button>
   </div>
@@ -25,7 +28,7 @@ export default defineComponent({
       "#title-bar",
       {
         scrollTrigger: {
-          trigger: "#title",
+          trigger: "#bottom-title",
           start: "bottom top",
           toggleActions: "play none none reverse"
         },
@@ -40,6 +43,10 @@ export default defineComponent({
 button {
   width: 200px;
   margin: 0 auto;
+}
+
+.title {
+  font-family: "ExoBd";
 }
 
 #title-bar {

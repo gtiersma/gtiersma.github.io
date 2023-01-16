@@ -1,7 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 960px;
+  width: 960px;
   margin: 0 auto;
 
   font-weight: normal;
@@ -24,9 +24,5 @@ a,
   body {
     display: flex;
     place-items: center;
-  }
-
-  #app {
-    padding: 0 2.5rem;
   }
 }
