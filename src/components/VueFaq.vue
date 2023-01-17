@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <h3>{{ faq.question }}</h3>
-    <h3 @click="show = !show">~</h3>
+  <div @click="show = !show">
+    <h3>{{ question }}</h3>
+    <h3>~</h3>
   </div>
 
   <div class="collapse" :class="showClass">
-    <p>{{ faq.answer }}</p>
+    <slot/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Faq } from './Faqs';
 
 export default defineComponent({
   props: {
-    faq: { type: Faq, required: true }
+    question: { type: String, required: true }
   },
   data () {
     return {
