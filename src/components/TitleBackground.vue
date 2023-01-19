@@ -1,15 +1,24 @@
 <template>
   <svg class="svg" ref="title-background">
-    <text
-      class="font"
-      v-for="i in LINE_COUNT"
-      :x="-20"
-      :y="i * SPACING"
-    >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</text>
+    <g
+      class="line-group"
+      v-for="i in LINE_GROUP_COUNT"
+      x="-20"
+      :y="getLineGroupStartY(i)"
+    >
+      <text
+        class="font"
+        v-for="j in LINES_PER_GROUP"
+        x="-20"
+        :y="getLineStartY(i, j)"
+      >
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </text>
+    </g>
   </svg>
 
   <fa-icon class="icon" id="chip" icon="fa-solid fa-microchip"/>
-  <fa-icon class="icon" id="wrench" icon="fa-solid fa-wrench" />
+  <fa-icon class="icon" id="wrench" icon="fa-solid fa-wrench"/>
 
   <svg class="svg" id="title-foreground">
     <rect
@@ -31,16 +40,23 @@
   export default defineComponent({
     data() {
       return {
-        LINE_COUNT: 30,
+        LINES_PER_GROUP: 5,
+        LINE_GROUP_COUNT: 4,
+        LINE_SPACING: 50,
         BAR_COUNT: 5,
         BAR_TRAVEL_DISTANCE: 100,
-        SPACING: 50,
         pageWidth: PAGE_WIDTH,
         backgroundHeight: null
       }
     },
 
     methods: {
+      getLineGroupStartY(index: number): number {
+        return (index - 1) * this.lineGroupHeight
+      },
+      getLineStartY(groupIndex: number, lineInGroupIndex: number): number {
+        return this.getLineGroupStartY(groupIndex) + (lineInGroupIndex - 1) * this.LINE_SPACING
+      },
       getBarStartY(): number {
         return Math.random() * (this.backgroundHeight ?? 0)
       },
@@ -51,10 +67,10 @@
       },
       startBackgroundAnimation() {
         gsap.to(
-          ".font",
+          ".line-group",
           {
-            y: `-=${ this.SPACING }`,
-            duration: 2,
+            y: `-=${ this.lineGroupHeight }`,
+            duration: 10,
             repeat: -1,
             ease: "none"
           }
@@ -89,6 +105,10 @@
       }
     },
 
+    computed: {
+      lineGroupHeight(): number { return this.LINE_SPACING * this.LINES_PER_GROUP }
+    },
+
     mounted() {
       const titleBackground = this.$refs["title-background"] as any
       this.backgroundHeight = titleBackground.clientHeight
@@ -101,7 +121,7 @@
   
 <style scoped>
 #title-foreground {
-  z-index: 20;
+  z-index: 15;
 }
 
 #chip {

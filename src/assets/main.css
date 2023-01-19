@@ -26,3 +26,7 @@ a,
     place-items: center;
   }
 }
+
+h2 {
+  padding: 20px 10px;
+}

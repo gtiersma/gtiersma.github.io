@@ -1,7 +1,7 @@
 <template>
   <h2>About Me</h2>
 
-  <vue-faq question="Who are you?">
+  <vue-faq question="Who are you?" :id="1">
     <p>
       My name is George Tiersma. Living in Oregon, I perform remote work on specialty
       photo-management software at <a href="https://digitalfusion.net">DigitalFusion</a>, located
@@ -21,7 +21,7 @@
       standards.
     </p>
   </vue-faq>
-  <vue-faq question="How do you approach software engineering?">
+  <vue-faq question="How do you approach software engineering?" :id="2">
     <p>
       I am still a junior, so my experience is limited, but here is what I do to the best of my
       knowledge:
@@ -62,7 +62,7 @@
       understand, I will add an inline, descriptive comment to better communicate its purpose.
     </p>
   </vue-faq>
-  <vue-faq question="What makes you different?">
+  <vue-faq question="What makes you different?" :id="3">
     <ul>
       <li>
         I feel I prioritize clean and understandable code more than most developers. I focus greatly
@@ -93,7 +93,7 @@
       </li>
     </ul>
   </vue-faq>
-  <vue-faq question="What drives your passion for software?">
+  <vue-faq question="What drives your passion for software?" :id="4">
     <p>
       It is the idea that I am working on a part of something that will be used to help thousands of
       other people. This keeps me serious about my work and focused on delivering a quality product.
@@ -104,7 +104,7 @@
       website you are viewing).
     </p>
   </vue-faq>
-  <vue-faq question="What would you say makes for quality code?">
+  <vue-faq question="What would you say makes for quality code?" :id="5">
     <p>
       I am still a junior, so my experience is limited, so here is how I would answer this question
       to the best of my knowledge:
@@ -124,7 +124,7 @@
     </ul>
   </vue-faq>
   <!-- Disabled because I don't think this is a good question for a public-facing website
-  <vue-faq question="What makes your job great?">
+  <vue-faq question="What makes your job great?" :id="6">
     <p>
       The ability to work remotely from home, having team that is helpful, and an overall friendly
       atmosphere are all things I can appreciate from work, but what makes work really great is the
@@ -134,7 +134,7 @@
     </p>
   </vue-faq>
   -->
-  <vue-faq question="What software design concepts are you familiar with?">
+  <vue-faq question="What software design concepts are you familiar with?" :id="7">
     <ul>
       <li>
         <a href="https://en.wikipedia.org/wiki/Domain-driven_design">
@@ -163,7 +163,7 @@
       </li>
     </ul>
   </vue-faq>
-  <vue-faq question="What are your favorite programming languages & tools?">
+  <vue-faq question="What are your favorite programming languages & tools?" :id="8">
     <ul>
       <li>
         <b>Kotlin</b> is currently my favorite language because of how easy it can make for clean
@@ -188,7 +188,7 @@
       </li>
     </ul>
   </vue-faq>
-  <vue-faq question="What else can I do?">
+  <vue-faq question="What else can I do?" :id="9">
     <p>
       As I work a full-stack job, I am also familiar with the basics of UI/UX design as well as
       database design. I have created plenty of different SQL statements in the past to query or
