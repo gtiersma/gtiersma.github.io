@@ -18,6 +18,7 @@ import VueFaq from './components/VueFaq.vue'
 import VueProject from './components/VueProject.vue'
 import VueSkills from './components/VueSkills.vue'
 
+import DividedSection from './components/DividedSection.vue'
 import TitleBackground from './components/TitleBackground.vue'
 
 createApp(App)
@@ -25,5 +26,6 @@ createApp(App)
   .component("VueFaq", VueFaq)
   .component("VueProject", VueProject)
   .component("VueSkills", VueSkills)
+  .component("DividedSection", DividedSection)
   .component("TitleBackground", TitleBackground)
   .mount('#app')
