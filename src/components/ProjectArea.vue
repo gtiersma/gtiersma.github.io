@@ -1,15 +1,16 @@
 <template>
   <h2>Work that I have done</h2>
 
-  <p>A few of the more notable projects I have worked on.</p>
+  <p>A few of the more notable projects that I have worked on</p>
 
-  <div class="container">
-    <div class="row" v-for="row in rows" :key="row[0].title">
-      <div class="column" v-for="project in row" :key="project.title">
-        <vue-project :project="project"/>
-      </div>
-    </div>
-  </div>
+  <vue-project v-for="project in projects" :project="project"/>
+
+  <p>
+    And that's not all. There are other projects that I have worked on that are omitted because
+    they are not "professional". Contact me if you are interested in hearing about more of my
+    projects.
+  </p>
+
 </template>
   
 <script lang="ts">
@@ -41,5 +42,4 @@
 </script>
   
 <style scoped>
-  
 </style>
