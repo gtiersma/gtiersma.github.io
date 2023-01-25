@@ -1,19 +1,18 @@
 <template>
-  <div class="card" @click="animate()" v-tippy="tooltip">
+  <div class="project" @click="animate()" v-tippy="tooltip">
     <div :id="shadingId" class="shading"/>
     <img
       :id="coverId"
-      class="card-image-top cover-image"
+      class="cover-image"
       :src="imagePath"
     />
-    <div class="card-body">
+    <div class="info">
       <h3>{{ project?.title }}</h3>
       <p v-for="description in project?.description">{{ description }}</p>
       <button v-show="!!props.project?.action" :href="imagePath">View Project</button>
     </div>
     <img 
       :id="imageId"
-      class="card-image-top"
       ref="imageEl"
       :src="imagePath"
     />
@@ -101,10 +100,6 @@ button {
   margin: 0 auto;
 }
 
-.card {
-  cursor:pointer;
-}
-
 .cover-image {
   position: absolute;
   min-height: 100%;
@@ -118,18 +113,21 @@ button {
   position: absolute;
   width: 100%;
   height: 0;
+  bottom: 0;
   z-index: 1;
 }
 
-.card {
+.project {
   background-color: blue;
   justify-content: end;
+  cursor: pointer;
 }
 
-.card-body {
+.info {
   position: absolute;
-  margin: 20px;
   display: inline-block;
+  bottom: 0;
+  margin: 20px;
   z-index: 3;
 }
 </style>
