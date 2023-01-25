@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg" ref="title-background">
+  <svg class="svg" ref="titleBackground">
     <g
       class="line-group"
       v-for="i in LINE_GROUP_COUNT"
@@ -23,7 +23,7 @@
   <svg class="svg" id="title-foreground">
     <rect
       :id="`bar${ i }`"
-      ref="bar"
+      ref="bars"
       v-for="i in BAR_COUNT"
       :y="getBarStartY()"
       :width="pageWidth"
@@ -32,90 +32,94 @@
   </svg>
 </template>
   
-<script lang="ts">
-  import { defineComponent } from 'vue';
+<script setup lang="ts">
+  import {
+    computed,
+    onMounted,
+    ref,
+    type ComputedRef,
+    type Ref
+  } from 'vue';
   import { gsap } from 'gsap'
   import { PAGE_WIDTH } from '@/Constants';
-  
-  export default defineComponent({
-    data() {
-      return {
-        LINES_PER_GROUP: 5,
-        LINE_GROUP_COUNT: 4,
-        LINE_SPACING: 50,
-        BAR_COUNT: 5,
-        BAR_TRAVEL_DISTANCE: 100,
-        pageWidth: PAGE_WIDTH,
-        backgroundHeight: null
-      }
-    },
 
-    methods: {
-      getLineGroupStartY(index: number): number {
-        return (index - 1) * this.lineGroupHeight
-      },
-      getLineStartY(groupIndex: number, lineInGroupIndex: number): number {
-        return this.getLineGroupStartY(groupIndex) + (lineInGroupIndex - 1) * this.LINE_SPACING
-      },
-      getBarStartY(): number {
-        return Math.random() * (this.backgroundHeight ?? 0)
-      },
-      getBarHeight(): number {
-        const MIN_HEIGHT = 10
-        const MAX_HEIGHT = 500
-        return Math.random() * (MAX_HEIGHT - MIN_HEIGHT) + MIN_HEIGHT
-      },
-      startBackgroundAnimation() {
-        gsap.to(
-          ".line-group",
-          {
-            y: `-=${ this.lineGroupHeight }`,
-            duration: 10,
-            repeat: -1,
-            ease: "none"
-          }
-        )
-      },
-      startForegroundAnimation() {
-        const bars = this.$refs.bar as any[]
-        bars.forEach((it, i) => {
-          gsap.to(
-            `#bar${ i + 1 }`,
-            {
-              y: `-=${ this.BAR_TRAVEL_DISTANCE }`,
-              duration: 2,
-              repeat: -1,
-              ease: "none",
-              onRepeatParams: [it],
-              onRepeat: this.barOnAnimationRepeat
-            }
-          )
-        })
-      },
-      barOnAnimationRepeat(bar: any) {
-        const y = bar.getAttribute("y")
-        const height = bar.getAttribute("height")
-        let startingHeight: number
-        if (y < -height) {
-          startingHeight = this.backgroundHeight ?? 0
-        } else {
-          startingHeight = y - this.BAR_TRAVEL_DISTANCE
+  const LINES_PER_GROUP: number = 5
+  const LINE_GROUP_COUNT: number = 4
+  const LINE_SPACING: number = 50
+
+  const MIN_BAR_HEIGHT = 10
+  const MAX_BAR_HEIGHT = 500
+  const BAR_COUNT: number = 5
+  const BAR_TRAVEL_DISTANCE: number = 100
+
+  const pageWidth: number = PAGE_WIDTH
+
+  const backgroundHeight: Ref<number> = ref(0)
+
+  const titleBackground: Ref<HTMLElement | null> = ref(null)
+
+  const bars: Ref<HTMLElement[]> = ref([])
+
+  const lineGroupHeight: ComputedRef<number> = computed(() => LINE_SPACING * LINES_PER_GROUP)
+
+  function getLineGroupStartY(index: number): number {
+    return (index - 1) * lineGroupHeight.value
+  }
+  function getLineStartY(groupIndex: number, lineInGroupIndex: number): number {
+    return getLineGroupStartY(groupIndex) + (lineInGroupIndex - 1) * LINE_SPACING
+  }
+
+  function getBarStartY(): number {
+    return Math.random() * backgroundHeight.value
+  }
+  function getBarHeight(): number {
+    return Math.random() * (MAX_BAR_HEIGHT - MIN_BAR_HEIGHT) + MIN_BAR_HEIGHT
+  }
+
+  function startBackgroundAnimation() {
+    gsap.to(
+      ".line-group",
+      {
+        y: `-=${ lineGroupHeight.value }`,
+        duration: 10,
+        repeat: -1,
+        ease: "none"
+      }
+    )
+  }
+  function startForegroundAnimation() {
+    bars.value.forEach(it => {
+      gsap.to(
+        `#${ it.id }`,
+        {
+          y: `-=${ BAR_TRAVEL_DISTANCE }`,
+          duration: 2,
+          repeat: -1,
+          ease: "none",
+          onRepeatParams: [it],
+          onRepeat: barOnAnimationRepeat
         }
-        bar.setAttribute("y", startingHeight)
-      }
-    },
+      )
+    })
+  }
+  function barOnAnimationRepeat(bar: any) {
+    const y = bar.getAttribute("y")
+    const height = bar.getAttribute("height")
 
-    computed: {
-      lineGroupHeight(): number { return this.LINE_SPACING * this.LINES_PER_GROUP }
-    },
-
-    mounted() {
-      const titleBackground = this.$refs["title-background"] as any
-      this.backgroundHeight = titleBackground.clientHeight
-
-      this.startBackgroundAnimation()
-      this.startForegroundAnimation()
+    let startingHeight: number
+    if (y < -height) {
+      startingHeight = backgroundHeight.value
+    } else {
+      startingHeight = y - BAR_TRAVEL_DISTANCE
     }
+    bar.setAttribute("y", startingHeight)
+  }
+
+  onMounted(() => {
+    backgroundHeight.value = titleBackground.value?.clientHeight ?? 0
+
+    startBackgroundAnimation()
+    startForegroundAnimation()
   })
 </script>
   

@@ -15,27 +15,25 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-export default defineComponent({
-  mounted() {
-    gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
-    gsap.to(
-      "#title-bar",
-      {
-        scrollTrigger: {
-          trigger: "#bottom-title",
-          start: "bottom top",
-          toggleActions: "play none none reverse"
-        },
-        y: 100
-      }
-    )
-  }
+onMounted(() => {
+  gsap.to(
+    "#title-bar",
+    {
+      scrollTrigger: {
+        trigger: "#bottom-title",
+        start: "bottom top",
+        toggleActions: "play none none reverse"
+      },
+      y: 100
+    }
+  )
 })
 </script>
 

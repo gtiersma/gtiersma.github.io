@@ -208,14 +208,13 @@
   </divided-section>
 </template>
   
-<script lang="ts">
-  import { defineComponent } from 'vue'
+<script setup lang="ts">
   import VueFaq from './VueFaq.vue'
   import DividedSection from './DividedSection.vue';
-  
-  export default defineComponent({})
 </script>
   
 <style scoped>
-  
+  p {
+    margin: 5px 20px;
+  }
 </style>

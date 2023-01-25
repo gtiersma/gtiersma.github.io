@@ -1,7 +1,7 @@
 <template>
   <div class="faq">
     <div class="collapse-header" @click="click()">
-      <h4 class="question">{{ question }}</h4>
+      <h4 class="question">{{ props.question }}</h4>
       <h3 class="character" :id="showId">+</h3>
       <h3 class="character hide-character" :id="hideId">-</h3>
     </div>
@@ -13,74 +13,72 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue';
 import { gsap } from 'gsap'
 
-export default defineComponent({
-  props: {
-    question: { type: String, required: true },
-    id: { type: Number, required: true }
-  },
-  data() {
-    return {
-      show: false,
-      bodyHeight: -1
-    }
-  },
-  methods: {
-    click() {
-      if (this.show) {
-        this.collapseTween.reverse()
-        this.showCharacterTween.reverse()
-        this.hideCharacterTween.play()
-      } else {
-        this.collapseTween.play()
-        this.showCharacterTween.play()
-        this.hideCharacterTween.reverse()
-      }
-      this.show = !this.show
-    },
-    getCharacterTween(hashId: string): GSAPTween {
-      return gsap.to(
-        hashId,
-        {
-          opacity: 0,
-          duration: 0.5
-        }
-      )
-    }
-  },
-  computed: {
-    showCharacter(): string { return this.show ? "-" : "+" },
-    bodyId(): string { return `collapse-body-${ this.id }` },
-    showId(): string { return `show-character-${ this.id }` },
-    hideId(): string { return `hide-character-${ this.id }` },
-    collapseTween(): GSAPTween {
-      return gsap.to(
-        `#${ this.bodyId }`,
-        {
-          height: this.bodyHeight,
-          duration: 0.5
-        }
-      )
-    },
-    showCharacterTween(): GSAPTween {
-      return this.getCharacterTween(`#${ this.showId }`)
-    },
-    hideCharacterTween(): GSAPTween {
-      return this.getCharacterTween(`#${ this.hideId }`)
-    }
-  },
-  mounted() {
-    const bodyEl = this.$refs.collapseBody as any
-    this.bodyHeight = bodyEl.clientHeight
-    gsap.set(
-      `#${ this.bodyId }`,
-      { height: 0 }
-    )
-    this.hideCharacterTween.play
+const props = defineProps({
+  question: String,
+  id: Number
+})
+
+const show: Ref<boolean> = ref(false)
+
+const bodyHeight: Ref<number> = ref(0)
+
+const collapseBody: Ref<HTMLElement | null> = ref(null)
+
+function click() {
+  if (show.value) {
+    collapseTween.value.reverse()
+    showCharacterTween.value.reverse()
+    hideCharacterTween.value.play()
+  } else {
+    collapseTween.value.play()
+    showCharacterTween.value.play()
+    hideCharacterTween.value.reverse()
   }
+  show.value = !show.value
+}
+
+function getCharacterTween(hashId: string): GSAPTween {
+  return gsap.to(
+    hashId,
+    {
+      opacity: 0,
+      duration: 0.5
+    }
+  )
+}
+
+const bodyId: ComputedRef<string> = computed(() => `collapse-body-${ props.id }`)
+const showId: ComputedRef<string> = computed(() => `show-character-${ props.id }`)
+const hideId: ComputedRef<string> = computed(() => `hide-character-${ props.id }`)
+
+const collapseTween: ComputedRef<GSAPTween> = computed(() =>
+  gsap.to(
+    `#${ bodyId.value }`,
+    {
+      height: bodyHeight.value,
+      duration: 0.5
+    }
+  )
+)
+
+const showCharacterTween: ComputedRef<GSAPTween> = computed(() =>
+  getCharacterTween(`#${ showId.value }`)
+)
+const hideCharacterTween: ComputedRef<GSAPTween> = computed(() =>
+  getCharacterTween(`#${ hideId.value }`)
+)
+
+onMounted(() => {
+  bodyHeight.value = collapseBody.value?.clientHeight ?? 0
+  gsap.set(
+    `#${ bodyId.value }`,
+    { height: 0 }
+  )
+  hideCharacterTween.value.play
 })
 </script>
 
@@ -99,7 +97,6 @@ export default defineComponent({
 
   .collapse-body {
     overflow: hidden;
-    margin: 5px 20px;
   }
 
   .question {

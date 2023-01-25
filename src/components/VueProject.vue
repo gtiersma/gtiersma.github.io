@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="animate()">
+  <div class="card" @click="animate()" v-tippy="tooltip">
     <div :id="shadingId" class="shading"/>
     <img
       :id="coverId"
@@ -7,100 +7,87 @@
       :src="imagePath"
     />
     <div class="card-body">
-      <h3>{{ project.title }}</h3>
-      <p v-for="description in project.description">{{ description }}</p>
-      <button v-show="!!action" :href="action">View Project</button>
+      <h3>{{ project?.title }}</h3>
+      <p v-for="description in project?.description">{{ description }}</p>
+      <button v-show="!!props.project?.action" :href="imagePath">View Project</button>
     </div>
     <img 
       :id="imageId"
       class="card-image-top"
-      ref="image"
+      ref="imageEl"
       :src="imagePath"
     />
   </div>
 </template>
     
-<script lang="ts">
-  import { defineComponent } from 'vue';
+<script setup lang="ts">
   import { Project } from './Projects';
   import gsap from 'gsap';
   import ScrollTrigger from "gsap/ScrollTrigger";
+  import { type Ref, ref, computed, type ComputedRef, onMounted } from 'vue';
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const props = defineProps({ project: Project })
+
+  const width: Ref<number> = ref(0)
+  const height: Ref<number> = ref(0)
+
+  const tooltip: Ref<string> = ref("Show Info")
+
+  const imageEl: Ref<HTMLElement | null> = ref(null)
+
+  const imagePath: ComputedRef<string> = computed(() => `public/${ props.project?.img }`)
     
-  export default defineComponent({
-    props: {
-      project: { type: Project, required: true }
-    },
-    data() {
-      return {
+  const imageId: ComputedRef<string> = computed(() => `img-${ props.project?.id }`)
+  const shadingId: ComputedRef<string> = computed(() => `shading-${ props.project?.id }`)
+  const coverId: ComputedRef<string> = computed(() => `cover-image-${ props.project?.id }`)
+
+  const timeline: ComputedRef<GSAPTimeline> = computed(() => {
+    if (height.value == 0) return gsap.timeline()
+    return gsap.timeline({
+      scrollTrigger: {
+        trigger: `#${ imageId.value }`,
+        start: "bottom bottom",
+        end: "50% top",
+        toggleActions: "play reverse play reverse"
+      }
+    }).to(
+      `#${ coverId.value }`,
+      {
+        left: `${ width.value }px`,
         width: 0,
-        height: 0
+        duration: 0.5,
+        onReverseComplete: () => { tooltip.value = "Show Info" }
       }
-    },
-    computed: {
-      action(): string {
-        return this.project.action
-      },
-      imagePath(): string {
-        return `public/${ this.project.img }`
-      },
-      tooltip(): string {
-        if (this.timeline.progress() == 0) {
-          return "Show Image"
-        } else if (this.timeline.progress() == 1) {
-          return "Show Info"
-        }
-        return "..."
-      },
-      imageId(): string { return `img-${ this.project.id }` },
-      shadingId(): string { return `shading-${ this.project.id }` },
-      coverId(): string { return `cover-image-${ this.project.id }` },
-      timeline(): GSAPTimeline {
-        if (this.height == 0) { return gsap.timeline() }
-        return gsap.timeline({
-          scrollTrigger: {
-            trigger: `#${ this.imageId }`,
-            start: "bottom bottom",
-            end: "50% top",
-            toggleActions: "play reverse play reverse"
-          }
-        }).to(
-          `#${ this.coverId }`,
-          {
-            left: `${ this.width }px`,
-            width: 0,
-            duration: 0.5
-          }
-        ).to(
-          `#${ this.shadingId }`,
-          {
-            height: `${ this.height }px`,
-            duration: 0.5
-          }
-        )
+    ).to(
+      `#${ shadingId.value }`,
+      {
+        height: `${ height.value }px`,
+        duration: 0.5,
+        onComplete: () => { tooltip.value = "Show Image" }
       }
-    },
-    methods: {
-      animate() {
-        if (this.timeline.progress() < 0.5) {
-          this.timeline.play()
-        } else {
-          this.timeline.reverse()
-        }
-      }
-    },
-    created() { gsap.registerPlugin(ScrollTrigger) },
-    mounted() {
-      setTimeout(() => {
-        const imageEl = this.$refs.image as any
-        this.width = imageEl.clientWidth
-        this.height = imageEl.clientHeight
-        gsap.set(
-          `#${ this.coverId }`,
-          { width: this.width }
-        )
-        this.timeline
-      }, 500)
+    )
+  })
+
+  function animate() {
+    if (timeline.value.progress() < 0.5) {
+      timeline.value.play()
+    } else {
+      timeline.value.reverse()
     }
+  }
+
+  onMounted(() => {
+    setTimeout(() => {
+      width.value = imageEl.value?.clientWidth ?? 0
+      height.value = imageEl.value?.clientHeight ?? 0
+      gsap.set(
+        `#${ coverId.value }`,
+        { width: width.value }
+      )
+      timeline.value
+    }, 500)
   })
 </script>
     

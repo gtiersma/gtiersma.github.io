@@ -11,17 +11,10 @@
   <vue-skills title="title" :skills="skills"/>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import { Skill, Skills } from './Skills';
 
-export default defineComponent({
-  computed: {
-    skills(): Skill[] {
-      return Skills
-    }
-  }
-})
+const skills: Skill[] = Skills
 </script>
 
 <style scoped>

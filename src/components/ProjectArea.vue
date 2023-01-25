@@ -13,32 +13,10 @@
 
 </template>
   
-<script lang="ts">
-  import { defineComponent } from 'vue';
+<script setup lang="ts">
   import { Project, Projects } from './Projects';
-  
-  export default defineComponent({
-    data() {
-      return {
-        COLUMN_COUNT: 3
-      }
-    },
-    computed: {
-      projects(): Project[] {
-        return Projects
-      },
-      rows(): Array<Project[]> {
-        let rows: Array<Project[]> = [[]]
-        this.projects.forEach(it => {
-          if (rows[rows.length - 1].length == this.COLUMN_COUNT) {
-            rows.push([])
-          }
-          rows[rows.length - 1].push(it)
-        })
-        return rows
-      }
-    }
-  })
+
+  const projects: Project[] = Projects
 </script>
   
 <style scoped>

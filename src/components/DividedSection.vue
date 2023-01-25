@@ -118,27 +118,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { PAGE_WIDTH } from '@/Constants';
 
-export default defineComponent({
-  data() {
-    return {
-      TOP_CURVE: {
-        xStart: 150,
-        width: 50,
-        height: 50
-      },
-      BOTTOM_CURVE: {
-        xStart: 250,
-        width: 50,
-        height: 30
-      },
-      pageWidth: PAGE_WIDTH
-    }
-  }
-})
+class Curve {
+  constructor(
+    readonly xStart: number,
+    readonly width: number,
+    readonly height: number
+  ) {}
+}
+
+const TOP_CURVE: Curve = new Curve(150, 50, 50)
+const BOTTOM_CURVE: Curve = new Curve(250, 50, 30)
+
+const pageWidth: number = PAGE_WIDTH
 </script>
 
 <style scoped>
