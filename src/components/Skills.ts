@@ -29,7 +29,7 @@ export const Libraries: Skill[] = [
   new Skill("Vue Class Component", "vue_class_component"),
   new Skill("Vue Router", "vue_router", true),
   new Skill("jQuery", "j_query"),
-  new Skill("Bootstrap", "bootstrap"),
+  new Skill("Bootstrap", "bootstrap", true),
   new Skill("Tippy", "tippy"),
   new Skill("GreenSock GSAP", "gsap"),
   new Skill("Node Js", "node", true)

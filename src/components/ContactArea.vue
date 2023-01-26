@@ -1,30 +1,46 @@
 <template>
-  <h5>Contact</h5>
+  <h6>Contact</h6>
 
-  <div>
-    <fa-icon icon="fa-envelope" href="tel:+5039912686"/>
-    <label>Email</label>
-  </div>
+  <ul>
+    <li>
+      <fa-icon class="icon" icon="fa-envelope" href="mailto:gtiersma@somethingmail.com"/>
+      <label href="mailto:gtiersma@somethingmail.com">Email</label>
+    </li>
 
-  <div>
-    <fa-icon icon="fa-phone" href="mailto:gtiersma@somethingmail.com"/>
-    <label>Call</label>
-  </div>
+    <li>
+      <fa-icon class="icon" icon="fa-phone" href="tel:+5039912686"/>
+      <label href="tel:+5039912686">Call</label>
+    </li>
 
-  <div>
-    <fa-icon icon="fa-brands fa-github" href="github.com"/>
-    <label>Git Hub</label>
-  </div>
+    <li>
+      <fa-icon class="icon" icon="fa-brands fa-linkedin-in" href="linkedin.com"/>
+      <label href="linkedin.com">LinkedIn</label>
+    </li>
 
-  <div>
-    <fa-icon icon="fa-brands fa-linkedin-in" href="linkedin.com"/>
-    <label>Linked In</label>
-  </div>
+    <li>
+      <fa-icon class="icon" icon="fa-brands fa-github" href="https://github.com/gtiersma"/>
+      <label href="https://github.com/gtiersma">Git Hub</label>
+    </li>
+  </ul>
 </template>
   
 <script setup lang="ts">
 </script>
   
 <style scoped>
-  
+  h6 {
+    padding: 0 0 5px 30px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  label {
+    padding-left: 10px;
+  }
+
+  label, .icon {
+    cursor: pointer;
+  }
 </style>
