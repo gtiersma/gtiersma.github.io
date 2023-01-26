@@ -6,7 +6,7 @@
     <div class="card" v-for="skill in skills">
       <img class="card-image-top" :src="getPath(skill.img)"/>
       <div class="card-body">
-        <h7>{{ skill.title }}</h7>
+        <h6>{{ skill.title }}</h6>
         <p v-show="skill.isPoor">*</p>
       </div>
     </div>

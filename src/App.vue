@@ -14,11 +14,13 @@
     </li>
   </ul>
 
-  <title-area/>
-  <faq-area/>
-  <project-area/>
-  <skill-area/>
-  <contact-area/>
+  <div class="container">
+    <title-area/>
+    <faq-area/>
+    <project-area/>
+    <skill-area/>
+    <contact-area/>
+  </div>
 </template>
 
 <script setup lang="ts">

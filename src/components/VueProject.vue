@@ -3,16 +3,21 @@
     <div :id="shadingId" class="shading"/>
     <img
       :id="coverId"
-      class="cover-image"
+      class="img-fluid cover-image"
       :src="imagePath"
     />
     <div class="info">
       <h3>{{ project?.title }}</h3>
       <p v-for="description in project?.description">{{ description }}</p>
-      <button v-show="!!props.project?.action" :href="imagePath">View Project</button>
+      <button
+        class="btn btn-primary"
+        v-show="!!props.project?.action"
+        :href="imagePath"
+      >View Project</button>
     </div>
     <img 
       :id="imageId"
+      class="img-fluid"
       ref="imageEl"
       :src="imagePath"
     />
