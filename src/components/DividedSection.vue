@@ -2,8 +2,8 @@
   <div class="divided-section">
     <div class="divider">
       <svg
-        :width="`${ TOP_CURVE.xStart }px`"
-        :height="`${ TOP_CURVE.height }px`"
+        :width="topCurve?.xStartCss"
+        :height="topCurve?.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -24,8 +24,8 @@
       </svg>
 
       <svg
-        :width="`${ TOP_CURVE.width }px`"
-        :height="`${ TOP_CURVE.height }px`"
+        :width="topCurve?.widthCss"
+        :height="topCurve?.heightCss"
         viewBox="0 0 26.5 27.1"
         preserveAspectRatio="none"
       >
@@ -40,8 +40,8 @@
       </svg>
 
       <svg
-        :width="`${ pageWidth - (TOP_CURVE.xStart + TOP_CURVE.width) }px`"
-        :height="`${ TOP_CURVE.height }px`"
+        :width="topCurve?.rightEdgeDistanceCss"
+        :height="topCurve?.height"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -61,8 +61,8 @@
 
     <div class="divider">
       <svg
-        :width="`${ BOTTOM_CURVE.xStart }px`"
-        :height="`${ BOTTOM_CURVE.height }px`"
+        :width="bottomCurve?.xStartCss"
+        :height="bottomCurve?.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -83,8 +83,8 @@
       </svg>
 
       <svg
-        :width="`${ BOTTOM_CURVE.width }px`"
-        :height="`${ BOTTOM_CURVE.height }px`"
+        :width="bottomCurve?.widthCss"
+        :height="bottomCurve?.heightCss"
         viewBox="0 -27.1 26.5 27.1"
         preserveAspectRatio="none"
       >
@@ -101,8 +101,8 @@
       </svg>
 
       <svg
-        :width="`${ pageWidth - (BOTTOM_CURVE.xStart + BOTTOM_CURVE.width) }px`"
-        :height="`${ BOTTOM_CURVE.height }px`"
+        :width="bottomCurve?.rightEdgeDistanceCss"
+        :height="bottomCurve?.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -119,20 +119,49 @@
 </template>
 
 <script setup lang="ts">
-import { PAGE_WIDTH } from '@/Constants';
+import { type Ref, ref, onMounted } from 'vue';
 
 class Curve {
+  distanceFromRightEdge: number = 0
+
   constructor(
     readonly xStart: number,
     readonly width: number,
-    readonly height: number
-  ) {}
+    readonly height: number,
+    pageWidth: number
+  ) {
+    this.distanceFromRightEdge = pageWidth - (xStart + width)
+  }
+
+  get xStartCss(): string { return `${ this.xStart }px` }
+  get widthCss(): string { return `${ this.width }px` }
+  get heightCss(): string { return `${ this.height }px` }
+  get rightEdgeDistanceCss(): string {
+    return `${ this.distanceFromRightEdge }px`
+  }
 }
 
-const TOP_CURVE: Curve = new Curve(150, 50, 50)
-const BOTTOM_CURVE: Curve = new Curve(250, 50, 30)
+const props = defineProps({
+  pageWidth: Number
+})
 
-const pageWidth: number = PAGE_WIDTH
+const topCurve: Ref<Curve | null> = ref(null)
+const bottomCurve: Ref<Curve | null> = ref(null)
+
+onMounted(() => {
+  topCurve.value = new Curve(
+    150,
+    50,
+    50,
+    props.pageWidth ?? 0
+  )
+  bottomCurve.value = new Curve(
+    250,
+    50,
+    30,
+    props.pageWidth ?? 0
+  )
+})
 </script>
 
 <style scoped>

@@ -1,9 +1,4 @@
-// Excludes padding
-
 import type { Instance, Props } from "tippy.js"
-
-// This should match the width of #app in main.css
-export const PAGE_WIDTH: number = 960
 
 export const DEFAULT_TIPPY_PROPS: any = {
   duration: [500, 100],

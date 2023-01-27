@@ -26,7 +26,7 @@
       ref="bars"
       v-for="i in BAR_COUNT"
       :y="getBarStartY()"
-      :width="pageWidth"
+      :width="props.pageWidth"
       :height="getBarHeight()"
     />
   </svg>
@@ -41,18 +41,19 @@
     type Ref
   } from 'vue';
   import { gsap } from 'gsap'
-  import { PAGE_WIDTH } from '@/Constants';
 
   const LINES_PER_GROUP: number = 5
   const LINE_GROUP_COUNT: number = 4
   const LINE_SPACING: number = 50
 
-  const MIN_BAR_HEIGHT = 10
-  const MAX_BAR_HEIGHT = 500
+  const MIN_BAR_HEIGHT: number = 10
+  const MAX_BAR_HEIGHT: number = 500
   const BAR_COUNT: number = 5
   const BAR_TRAVEL_DISTANCE: number = 100
 
-  const pageWidth: number = PAGE_WIDTH
+  const props = defineProps({
+    pageWidth: Number
+  })
 
   const backgroundHeight: Ref<number> = ref(0)
 

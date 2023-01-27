@@ -1,5 +1,5 @@
 <template>
-  <divided-section>
+  <divided-section :page-width="props.pageWidth">
     <h2>Technical Experience</h2>
 
     <p>As a fast-learner, I believe that the ability to learn new tools
@@ -32,6 +32,10 @@ import {
   Oses,
   Others
 } from './Skills';
+
+const props = defineProps({
+  pageWidth: Number
+})
 
 const languages: Skill[] = Languages
 const libraries: Skill[] = Libraries

@@ -1,5 +1,5 @@
 <template>
-  <divided-section>
+  <divided-section :page-width="props.pageWidth">
     <h2>About Me</h2>
 
     <vue-faq question="Who are you?" :id="1">
@@ -211,6 +211,10 @@
 <script setup lang="ts">
   import VueFaq from './VueFaq.vue'
   import DividedSection from './DividedSection.vue';
+
+  const props = defineProps({
+    pageWidth: Number
+  })
 </script>
   
 <style scoped>

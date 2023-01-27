@@ -14,11 +14,11 @@
     </li>
   </ul>
 
-  <div class="container">
-    <title-area/>
-    <faq-area/>
-    <project-area/>
-    <skill-area/>
+  <div class="container" ref="container">
+    <title-area :page-width="width"/>
+    <faq-area :page-width="width"/>
+    <!--<project-area/>-->
+    <skill-area :page-width="width"/>
     <contact-area/>
   </div>
 </template>
@@ -29,6 +29,15 @@ import FaqArea from './components/FaqArea.vue'
 import ProjectArea from './components/ProjectArea.vue'
 import SkillArea from './components/SkillArea.vue'
 import ContactArea from './components/ContactArea.vue'
+import { type Ref, ref, onMounted } from 'vue'
+
+const width: Ref<number> = ref(0)
+
+const container: Ref<HTMLElement | null> = ref(null)
+
+onMounted(() => {
+  width.value = container.value?.clientWidth ?? 0
+})
 </script>
 
 <style scoped>
@@ -37,7 +46,7 @@ import ContactArea from './components/ContactArea.vue'
     left: 0;
     padding-top: 100px;
     height: 100%;
-    background-image: linear-gradient(90deg, #fff, transparent);
+    background-image: linear-gradient(90deg, #000, transparent);
     z-index: 10;
   }
 </style>

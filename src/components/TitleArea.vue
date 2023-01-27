@@ -6,7 +6,7 @@
   </div>
 
   <div id="title-area">
-    <title-background/>
+    <title-background :page-width="props.pageWidth"/>
 
     <h1 class="title">George Tiersma</h1>
     <h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1>
@@ -21,6 +21,10 @@ import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger)
+
+const props = defineProps({
+  pageWidth: Number
+})
 
 onMounted(() => {
   gsap.to(
