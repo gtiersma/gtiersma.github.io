@@ -26,7 +26,7 @@
       ref="bars"
       v-for="i in BAR_COUNT"
       :y="getBarStartY()"
-      :width="props.pageWidth"
+      :width="viewPortWidth"
       :height="getBarHeight()"
     />
   </svg>
@@ -51,10 +51,7 @@
   const BAR_COUNT: number = 5
   const BAR_TRAVEL_DISTANCE: number = 100
 
-  const props = defineProps({
-    pageWidth: Number
-  })
-
+  const viewPortWidth: Ref<number> = ref(0)
   const backgroundHeight: Ref<number> = ref(0)
 
   const titleBackground: Ref<HTMLElement | null> = ref(null)
@@ -117,6 +114,7 @@
   }
 
   onMounted(() => {
+    viewPortWidth.value = window.innerWidth
     backgroundHeight.value = titleBackground.value?.clientHeight ?? 0
 
     startBackgroundAnimation()
@@ -149,7 +147,7 @@
 }
 
 .svg {
-  width: 100%;
+  width: 100vw;
   height: 80vh;
   position: absolute;
 }

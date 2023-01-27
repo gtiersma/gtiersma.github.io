@@ -14,8 +14,9 @@
     </li>
   </ul>
 
+  <title-area/>
+
   <div class="container" ref="container">
-    <title-area :page-width="width"/>
     <faq-area :page-width="width"/>
     <!--<project-area/>-->
     <skill-area :page-width="width"/>
