@@ -1,13 +1,15 @@
 <template>
-  <h3>{{ title }}</h3>
-  <br/>
-
   <div class="container">
-    <div class="card" v-for="skill in skills">
-      <img class="card-image-top" :src="getPath(skill.img)"/>
-      <div class="card-body">
-        <h6>{{ skill.title }}</h6>
-        <p v-show="skill.isPoor">*</p>
+    <h3>{{ title }}</h3>
+    <br/>
+
+    <div class="body">
+      <div class="card" v-for="skill in skills">
+        <img class="card-image-top" :src="getPath(skill.img)"/>
+        <div class="card-body">
+          <h6>{{ skill.title }}</h6>
+          <p v-show="skill.isPoor">*</p>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +46,7 @@ p {
   display: inline;
 }
 
-.container {
+.body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

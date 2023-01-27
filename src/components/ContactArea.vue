@@ -1,27 +1,29 @@
 <template>
-  <h6>Contact</h6>
+  <div class="container-sm">
+    <h6>Contact</h6>
 
-  <ul>
-    <li>
-      <fa-icon class="icon" icon="fa-envelope" href="mailto:gtiersma@somethingmail.com"/>
-      <label href="mailto:gtiersma@somethingmail.com">Email</label>
-    </li>
+    <ul>
+      <li>
+        <fa-icon class="icon" icon="fa-envelope" href="mailto:gtiersma@somethingmail.com"/>
+        <label href="mailto:gtiersma@somethingmail.com">Email</label>
+      </li>
 
-    <li>
-      <fa-icon class="icon" icon="fa-phone" href="tel:+5039912686"/>
-      <label href="tel:+5039912686">Call</label>
-    </li>
+      <li>
+        <fa-icon class="icon" icon="fa-phone" href="tel:+5039912686"/>
+        <label href="tel:+5039912686">Call</label>
+      </li>
 
-    <li>
-      <fa-icon class="icon" icon="fa-brands fa-linkedin-in" href="linkedin.com"/>
-      <label href="linkedin.com">LinkedIn</label>
-    </li>
+      <li>
+        <fa-icon class="icon" icon="fa-brands fa-linkedin-in" href="linkedin.com"/>
+        <label href="linkedin.com">LinkedIn</label>
+      </li>
 
-    <li>
-      <fa-icon class="icon" icon="fa-brands fa-github" href="https://github.com/gtiersma"/>
-      <label href="https://github.com/gtiersma">Git Hub</label>
-    </li>
-  </ul>
+      <li>
+        <fa-icon class="icon" icon="fa-brands fa-github" href="https://github.com/gtiersma"/>
+        <label href="https://github.com/gtiersma">Git Hub</label>
+      </li>
+    </ul>
+  </div>
 </template>
   
 <script setup lang="ts">
