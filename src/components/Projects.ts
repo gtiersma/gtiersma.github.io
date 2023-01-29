@@ -6,6 +6,8 @@ export class Project {
     readonly action: string = ""
   ) {}
 
+  get imgPath(): string { return `public/${ this.img }` }
+
   get id(): string {
     return this.title.replace(" ", "")
   }

@@ -18,7 +18,7 @@
 
   <div class="container" ref="container">
     <faq-area :page-width="width"/>
-    <!--<project-area/>-->
+    <project-area/>
     <skill-area :page-width="width"/>
     <contact-area/>
   </div>
