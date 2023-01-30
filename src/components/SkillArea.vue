@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { SizeWatcher } from '@/SizeWatcher';
 import {
   Skill,
   Languages,
@@ -34,7 +35,7 @@ import {
 } from './Skills';
 
 const props = defineProps({
-  pageWidth: Number
+  pageWidth: SizeWatcher
 })
 
 const languages: Skill[] = Languages

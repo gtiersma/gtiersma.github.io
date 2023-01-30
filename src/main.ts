@@ -19,7 +19,6 @@ import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 library.add(faPhone, faEnvelope, faMicrochip, faWrench, faGithub, faLinkedinIn)
 
 import VueFaq from './components/VueFaq.vue'
-import VueProject from './components/VueProject.vue'
 import VueSkills from './components/VueSkills.vue'
 
 import DividedSection from './components/DividedSection.vue'
@@ -29,7 +28,6 @@ import { DEFAULT_TIPPY_PROPS } from './Constants'
 createApp(App)
   .component("FaIcon", FontAwesomeIcon)
   .component("VueFaq", VueFaq)
-  .component("VueProject", VueProject)
   .component("VueSkills", VueSkills)
   .component("DividedSection", DividedSection)
   .component("TitleBackground", TitleBackground)

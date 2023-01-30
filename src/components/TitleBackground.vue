@@ -23,10 +23,10 @@
   <svg class="svg" id="title-foreground">
     <rect
       :id="`bar${ i }`"
+      class="bar"
       ref="bars"
       v-for="i in BAR_COUNT"
       :y="getBarStartY()"
-      :width="viewPortWidth"
       :height="getBarHeight()"
     />
   </svg>
@@ -41,6 +41,7 @@
     type Ref
   } from 'vue';
   import { gsap } from 'gsap'
+import { SizeWatcher } from '@/SizeWatcher';
 
   const LINES_PER_GROUP: number = 5
   const LINE_GROUP_COUNT: number = 4
@@ -51,10 +52,9 @@
   const BAR_COUNT: number = 5
   const BAR_TRAVEL_DISTANCE: number = 100
 
-  const viewPortWidth: Ref<number> = ref(0)
-  const backgroundHeight: Ref<number> = ref(0)
-
   const titleBackground: Ref<HTMLElement | null> = ref(null)
+
+  const heightWatcher: SizeWatcher = new SizeWatcher(titleBackground, false, true)
 
   const bars: Ref<HTMLElement[]> = ref([])
 
@@ -68,7 +68,7 @@
   }
 
   function getBarStartY(): number {
-    return Math.random() * backgroundHeight.value
+    return Math.random() * heightWatcher.height.value
   }
   function getBarHeight(): number {
     return Math.random() * (MAX_BAR_HEIGHT - MIN_BAR_HEIGHT) + MIN_BAR_HEIGHT
@@ -106,7 +106,7 @@
 
     let startingHeight: number
     if (y < -height) {
-      startingHeight = backgroundHeight.value
+      startingHeight = heightWatcher.height.value
     } else {
       startingHeight = y - BAR_TRAVEL_DISTANCE
     }
@@ -114,8 +114,7 @@
   }
 
   onMounted(() => {
-    viewPortWidth.value = window.innerWidth
-    backgroundHeight.value = titleBackground.value?.clientHeight ?? 0
+    heightWatcher.start()
 
     startBackgroundAnimation()
     startForegroundAnimation()
@@ -150,5 +149,9 @@
   width: 100vw;
   height: 80vh;
   position: absolute;
+}
+
+.bar {
+  width: 100vw;
 }
 </style>

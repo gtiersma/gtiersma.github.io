@@ -119,18 +119,25 @@
 </template>
 
 <script setup lang="ts">
+import { SizeWatcher } from '@/SizeWatcher';
 import { type Ref, ref, onMounted } from 'vue';
 
 class Curve {
-  distanceFromRightEdge: number = 0
-
   constructor(
     readonly xStart: number,
     readonly width: number,
     readonly height: number,
-    pageWidth: number
-  ) {
-    this.distanceFromRightEdge = pageWidth - (xStart + width)
+    private readonly pageWidthWatcher: SizeWatcher | undefined
+  ) {}
+
+  get pageWidth(): number {
+    if (!this.pageWidthWatcher) throw "NPE from PAGE WIDTH WATCHER"
+    return this.pageWidthWatcher.width.value ?? 0
+  }
+
+  get distanceFromRightEdge(): number {
+    const distance = this.pageWidth - (this.xStart + this.width)
+    return distance < 0 ? 0 : distance
   }
 
   get xStartCss(): string { return `${ this.xStart }px` }
@@ -142,7 +149,7 @@ class Curve {
 }
 
 const props = defineProps({
-  pageWidth: Number
+  pageWidth: SizeWatcher
 })
 
 const topCurve: Ref<Curve | null> = ref(null)
@@ -153,13 +160,13 @@ onMounted(() => {
     150,
     50,
     50,
-    props.pageWidth ?? 0
+    props.pageWidth
   )
   bottomCurve.value = new Curve(
     250,
     50,
     30,
-    props.pageWidth ?? 0
+    props.pageWidth
   )
 })
 </script>

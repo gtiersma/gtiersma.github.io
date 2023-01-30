@@ -17,9 +17,9 @@
   <title-area/>
 
   <div class="container" ref="container">
-    <faq-area :page-width="width"/>
+    <faq-area :page-width="widthWatcher"/>
     <project-area/>
-    <skill-area :page-width="width"/>
+    <skill-area :page-width="widthWatcher"/>
     <contact-area/>
   </div>
 </template>
@@ -31,14 +31,13 @@ import ProjectArea from './components/ProjectArea.vue'
 import SkillArea from './components/SkillArea.vue'
 import ContactArea from './components/ContactArea.vue'
 import { type Ref, ref, onMounted } from 'vue'
-
-const width: Ref<number> = ref(0)
+import { SizeWatcher } from './SizeWatcher'
 
 const container: Ref<HTMLElement | null> = ref(null)
 
-onMounted(() => {
-  width.value = container.value?.clientWidth ?? 0
-})
+const widthWatcher: SizeWatcher = new SizeWatcher(container, true, false)
+
+onMounted(() => widthWatcher.start())
 </script>
 
 <style scoped>
