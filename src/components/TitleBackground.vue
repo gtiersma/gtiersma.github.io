@@ -6,7 +6,7 @@
       x="20"
       :y="getLineStartY(i)"
     >
-      {{ line.text.value }}
+      {{ line.text }}
     </text>
   </svg>
 
@@ -29,6 +29,7 @@
   import {
     computed,
     onMounted,
+    reactive,
     ref,
     watch,
     type ComputedRef,
@@ -36,7 +37,7 @@
   } from 'vue';
   import { gsap } from 'gsap'
   import { SizeWatcher } from '@/SizeWatcher';
-  import { CodeLine, CodeLines } from './CodeLine';
+  import { CodeLines } from './CodeLine';
 
   const MIN_BAR_HEIGHT: number = 10
   const MAX_BAR_HEIGHT: number = 500
@@ -46,17 +47,13 @@
   let barStartYs: number[] = []
   let barHeights: number[] = []
 
-  const codeLines: CodeLine[] = CodeLines
+  const codeLines = reactive(CodeLines)
 
   const titleBackground: Ref<HTMLElement | null> = ref(null)
 
   const heightWatcher: SizeWatcher = new SizeWatcher(titleBackground, false, true)
 
   const bars: Ref<HTMLElement[]> = ref([])
-
-  const readyForNextCodeAnim: ComputedRef<Boolean> = computed(() => 
-    codeLines.every(it => it.isReadyForNextLine.value)
-  )
 
   function getLineStartY(lineIndex: number): number {
     return lineIndex * (heightWatcher.height.value / codeLines.length)
@@ -100,7 +97,11 @@
     bar.setAttribute("y", startingHeight)
   }
 
-  watch(readyForNextCodeAnim, () => startBackgroundAnimation())
+  watch(codeLines, newLines => {
+    if (newLines.every(it => it.isReadyForNextLine)) {
+      startBackgroundAnimation()
+    }
+  })
 
   onMounted(() => {
     barStartYs = Array(BAR_COUNT).fill(getBarStartY(), 0)
