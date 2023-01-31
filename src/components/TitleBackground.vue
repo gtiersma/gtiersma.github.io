@@ -1,20 +1,13 @@
 <template>
   <svg class="svg" ref="titleBackground">
-    <g
-      class="line-group"
-      v-for="i in LINE_GROUP_COUNT"
-      x="-20"
-      :y="getLineGroupStartY(i)"
+    <text
+      class="font"
+      v-for="(line, i) in codeLines"
+      x="20"
+      :y="getLineStartY(i)"
     >
-      <text
-        class="font"
-        v-for="j in LINES_PER_GROUP"
-        x="-20"
-        :y="getLineStartY(i, j)"
-      >
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      </text>
-    </g>
+      {{ line.text.value }}
+    </text>
   </svg>
 
   <fa-icon class="icon" id="chip" icon="fa-solid fa-microchip"/>
@@ -26,8 +19,8 @@
       class="bar"
       ref="bars"
       v-for="i in BAR_COUNT"
-      :y="getBarStartY()"
-      :height="getBarHeight()"
+      :y="barStartYs[i]"
+      :height="barHeights[i]"
     />
   </svg>
 </template>
@@ -37,20 +30,23 @@
     computed,
     onMounted,
     ref,
+    watch,
     type ComputedRef,
     type Ref
   } from 'vue';
   import { gsap } from 'gsap'
-import { SizeWatcher } from '@/SizeWatcher';
-
-  const LINES_PER_GROUP: number = 5
-  const LINE_GROUP_COUNT: number = 4
-  const LINE_SPACING: number = 50
+  import { SizeWatcher } from '@/SizeWatcher';
+  import { CodeLine, CodeLines } from './CodeLine';
 
   const MIN_BAR_HEIGHT: number = 10
   const MAX_BAR_HEIGHT: number = 500
   const BAR_COUNT: number = 5
   const BAR_TRAVEL_DISTANCE: number = 100
+
+  let barStartYs: number[] = []
+  let barHeights: number[] = []
+
+  const codeLines: CodeLine[] = CodeLines
 
   const titleBackground: Ref<HTMLElement | null> = ref(null)
 
@@ -58,13 +54,12 @@ import { SizeWatcher } from '@/SizeWatcher';
 
   const bars: Ref<HTMLElement[]> = ref([])
 
-  const lineGroupHeight: ComputedRef<number> = computed(() => LINE_SPACING * LINES_PER_GROUP)
+  const readyForNextCodeAnim: ComputedRef<Boolean> = computed(() => 
+    codeLines.every(it => it.isReadyForNextLine.value)
+  )
 
-  function getLineGroupStartY(index: number): number {
-    return (index - 1) * lineGroupHeight.value
-  }
-  function getLineStartY(groupIndex: number, lineInGroupIndex: number): number {
-    return getLineGroupStartY(groupIndex) + (lineInGroupIndex - 1) * LINE_SPACING
+  function getLineStartY(lineIndex: number): number {
+    return lineIndex * (heightWatcher.height.value / codeLines.length)
   }
 
   function getBarStartY(): number {
@@ -75,15 +70,7 @@ import { SizeWatcher } from '@/SizeWatcher';
   }
 
   function startBackgroundAnimation() {
-    gsap.to(
-      ".line-group",
-      {
-        y: `-=${ lineGroupHeight.value }`,
-        duration: 10,
-        repeat: -1,
-        ease: "none"
-      }
-    )
+    codeLines.forEach(it => it.changeLine())
   }
   function startForegroundAnimation() {
     bars.value.forEach(it => {
@@ -113,7 +100,12 @@ import { SizeWatcher } from '@/SizeWatcher';
     bar.setAttribute("y", startingHeight)
   }
 
+  watch(readyForNextCodeAnim, () => startBackgroundAnimation())
+
   onMounted(() => {
+    barStartYs = Array(BAR_COUNT).fill(getBarStartY(), 0)
+    barHeights = Array(BAR_COUNT).fill(getBarHeight(), 0)
+    
     heightWatcher.start()
 
     startBackgroundAnimation()

@@ -25,9 +25,6 @@ export class SizeWatcher {
 
   private updateHeight() {
     this.height.value = this.element.value?.clientHeight ?? 0
-    console.error("HEIGHT SET")
-    console.error(this.element)
-    console.error(this.height.value)
   }
 
   private handleTimeout() {
