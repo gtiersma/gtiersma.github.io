@@ -14,6 +14,7 @@
     </li>
   </ul>
 
+  <background/>
   <title-area/>
 
   <div class="container" ref="container">

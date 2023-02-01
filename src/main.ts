@@ -21,6 +21,7 @@ library.add(faPhone, faEnvelope, faMicrochip, faWrench, faGithub, faLinkedinIn)
 import VueFaq from './components/VueFaq.vue'
 import VueSkills from './components/VueSkills.vue'
 
+import Background from './components/Background.vue'
 import DividedSection from './components/DividedSection.vue'
 import TitleBackground from './components/TitleBackground.vue'
 import { DEFAULT_TIPPY_PROPS } from './Constants'
@@ -29,6 +30,7 @@ createApp(App)
   .component("FaIcon", FontAwesomeIcon)
   .component("VueFaq", VueFaq)
   .component("VueSkills", VueSkills)
+  .component("Background", Background)
   .component("DividedSection", DividedSection)
   .component("TitleBackground", TitleBackground)
   .use(VueTippy, { defaultProps: DEFAULT_TIPPY_PROPS })
