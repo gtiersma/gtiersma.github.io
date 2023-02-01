@@ -6,15 +6,25 @@
       </filter>
     </defs>
 
-    <g v-for="group in lineGroups" filter="url(#backgroud-blur)">
-      <rect v-for="y in group" :height="LINE_HEIGHT" :y="y"/>
+    <g
+      v-for="(group, i) in lineStartYGroups"
+      :id="`line-group-${ i }`"
+      ref="lineGroups"
+      filter="url(#backgroud-blur)"
+    >
+      <rect
+        v-for="y in group"
+        :height="LINE_HEIGHT"
+        :y="y"
+      />
     </g>
   </svg>
 </template>
 
 <script setup lang="ts">
 import { SizeWatcher } from '@/SizeWatcher';
-import { computed, onMounted, ref, type ComputedRef, type Ref, watch } from 'vue';
+import gsap from 'gsap';
+import { computed, onMounted, ref, type ComputedRef, type Ref, watch, nextTick } from 'vue';
 
 const LINE_SPACING: number = 10
 const LINE_HEIGHT: number = 10
@@ -24,19 +34,28 @@ const LINE_GROUP_SIZE: number = 10
 const linePositions: Ref<number[]> = ref([])
 
 const svg: Ref<HTMLElement | null> = ref(null)
+const lineGroups: Ref<HTMLElement[]> = ref([])
 
 const heightWatcher: SizeWatcher = new SizeWatcher(svg, false, true)
 
 const lineCount: ComputedRef<number> = computed(() =>
-  (heightWatcher.height.value * 1.1) / (LINE_HEIGHT + LINE_SPACING)
+  lineGroupCount.value * LINE_GROUP_SIZE
 )
-const groupCount: ComputedRef<number> = computed(() =>
-  Math.ceil(lineCount.value / LINE_GROUP_SIZE)
+const lineGroupCount: ComputedRef<number> = computed(() => 
+  Math.ceil(heightWatcher.height.value / LINE_GROUP_SIZE) + 2
 )
 
-const lineGroups: ComputedRef<number[][]> = computed(() => {
+const lineGroupHeight: ComputedRef<number> = computed(() =>
+  (LINE_HEIGHT + LINE_SPACING) * LINE_GROUP_SIZE
+)
+
+const lineSpaceOutOfView: ComputedRef<number> = computed(() =>
+  (lineGroupCount.value * lineGroupHeight.value) - heightWatcher.height.value
+)
+
+const lineStartYGroups: ComputedRef<number[][]> = computed(() => {
   const groupedLines: number[][] = []
-  for (let i = 0; i < groupCount.value; i++) {
+  for (let i = 0; i < lineGroupCount.value; i++) {
     groupedLines.push([])
     for (let j = 0; j < LINE_GROUP_SIZE; j++) {
       groupedLines[i].push(
@@ -56,9 +75,42 @@ function resizeUpdate() {
   )
 }
 
+function startAnimation() {
+  lineGroups.value.forEach(it => {
+    gsap.to(
+      `#${ it.id }`,
+      {
+        y: `-=${ lineGroupHeight.value }`,
+        duration: 20,
+        repeat: -1,
+        ease: "none",
+        onRepeatParams: [it],
+        onRepeat: lineGroupAnimRepeat
+      }
+    )
+  })
+} 
+
+function lineGroupAnimRepeat(lineGroup: HTMLElement) {
+  const y = Number(lineGroup.getAttribute("y"))
+
+  const halfSpacing = lineSpaceOutOfView.value / 2
+
+  let newY: number
+  if (y < -halfSpacing) {
+    newY = heightWatcher.height.value + halfSpacing
+  } else {
+    newY = y - lineGroupHeight.value
+  }
+  lineGroup.setAttribute("y", String(newY))
+}
+
 watch(heightWatcher.height, () => resizeUpdate())
 
-onMounted(() => heightWatcher.start())
+onMounted(() => {
+  heightWatcher.start()
+  nextTick(() => startAnimation())
+})
 </script>
 
 <style scoped>

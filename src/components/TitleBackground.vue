@@ -27,12 +27,10 @@
   
 <script setup lang="ts">
   import {
-    computed,
     onMounted,
     reactive,
     ref,
     watch,
-    type ComputedRef,
     type Ref
   } from 'vue';
   import { gsap } from 'gsap'
@@ -70,7 +68,7 @@
     codeLines.forEach(it => it.changeLine())
   }
   function startForegroundAnimation() {
-    bars.value.forEach(it => {
+    bars.value.forEach((it, i) => {
       gsap.to(
         `#${ it.id }`,
         {
@@ -78,23 +76,22 @@
           duration: 2,
           repeat: -1,
           ease: "none",
-          onRepeatParams: [it],
+          onRepeatParams: [it, barHeights[i]],
           onRepeat: barOnAnimationRepeat
         }
       )
     })
   }
-  function barOnAnimationRepeat(bar: any) {
-    const y = bar.getAttribute("y")
-    const height = bar.getAttribute("height")
+  function barOnAnimationRepeat(bar: HTMLElement, height: number) {
+    const y = Number(bar.getAttribute("y"))
 
-    let startingHeight: number
+    let newY: number
     if (y < -height) {
-      startingHeight = heightWatcher.height.value
+      newY = heightWatcher.height.value
     } else {
-      startingHeight = y - BAR_TRAVEL_DISTANCE
+      newY = y - BAR_TRAVEL_DISTANCE
     }
-    bar.setAttribute("y", startingHeight)
+    bar.setAttribute("y", String(newY))
   }
 
   watch(codeLines, newLines => {
