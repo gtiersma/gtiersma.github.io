@@ -1,5 +1,5 @@
 <template>
-  <div id="title-bar" class="navbar navbar-expand-sm">
+  <div id="title-bar" class="navbar navbar-expand-sm far-far-front">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a>
     </div>
@@ -11,7 +11,7 @@
     <h1 class="title">George Tiersma</h1>
     <h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1>
 
-    <button class="btn btn-primary">View Resume</button>
+    <button class="btn btn-primary far-front">View Resume</button>
   </div>
 </template>
 
@@ -54,7 +54,6 @@ button {
   width: 100%;
   background-color: #fff;
   justify-content: center;
-  z-index: 20;
 }
 
 #title-area {

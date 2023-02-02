@@ -4,7 +4,7 @@
     <br/>
 
     <div class="body">
-      <div class="card" v-for="skill in skills">
+      <div class="card far-front" v-for="skill in skills">
         <img class="card-image-top" :src="getPath(skill.img)"/>
         <div class="card-body">
           <h6>{{ skill.title }}</h6>

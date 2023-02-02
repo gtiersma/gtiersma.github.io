@@ -1,5 +1,5 @@
 <template>
-  <div class="container-sm divided-section">
+  <div class="container-sm divided-section front">
     <div class="divider">
       <svg
         :width="topCurve?.xStartCss"
@@ -174,7 +174,6 @@ onMounted(() => {
 <style scoped>
 .divided-section {
   top: -50px;
-  z-index: 25;
 }
 
 .line-color {

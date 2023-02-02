@@ -1,5 +1,5 @@
 <template>
-  <svg ref="svg">
+  <svg class="far-far-back" ref="svg">
     <defs>
       <filter id="backgroud-blur" x="0" y="0">
         <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>

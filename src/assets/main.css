@@ -1,5 +1,33 @@
 @import './base.css';
 
+body {
+  overflow-x: hidden;
+}
+
 h2 {
   padding: 20px 30px;
+}
+
+.far-far-back {
+  z-index: -10;
+}
+
+.far-back {
+  z-index: -5;
+}
+
+.back {
+  z-index: -3;
+}
+
+.front {
+  z-index: 3;
+}
+
+.far-front {
+  z-index: 5;
+}
+
+.far-far-front {
+  z-index: 10;
 }

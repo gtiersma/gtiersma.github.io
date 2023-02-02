@@ -1,5 +1,5 @@
 <template>
-  <ul class="nav flex-column nav-menu">
+  <ul class="nav flex-column nav-menu far-front">
     <li class="nav-item">
       <a class="nav-link" href="#">About Me</a>
     </li>
@@ -48,6 +48,5 @@ onMounted(() => widthWatcher.start())
     padding-top: 100px;
     height: 100%;
     background-image: linear-gradient(90deg, #000, transparent);
-    z-index: 10;
   }
 </style>

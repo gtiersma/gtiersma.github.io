@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg" ref="titleBackground">
+  <svg class="svg far-back" ref="titleBackground">
     <text
       class="font"
       v-for="(line, i) in codeLines"
@@ -10,10 +10,10 @@
     </text>
   </svg>
 
-  <fa-icon class="icon" id="chip" icon="fa-solid fa-microchip"/>
-  <fa-icon class="icon" id="wrench" icon="fa-solid fa-wrench"/>
+  <fa-icon class="icon back" id="chip" icon="fa-solid fa-microchip"/>
+  <fa-icon class="icon back" id="wrench" icon="fa-solid fa-wrench"/>
 
-  <svg class="svg" id="title-foreground">
+  <svg class="svg front">
     <rect
       :id="`bar${ i }`"
       class="bar"
@@ -112,10 +112,6 @@
 </script>
   
 <style scoped>
-#title-foreground {
-  z-index: 15;
-}
-
 #chip {
   top: 15vh;
   left: 30%;
@@ -127,7 +123,7 @@
 }
 
 .icon {
-  position: fixed;
+  position: absolute;
   font-size: 256pt;
 }
 
