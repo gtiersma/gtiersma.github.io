@@ -1,8 +1,6 @@
-import { computed, ref, type ComputedRef, type Ref } from "vue"
-
 export class CodeLine {
   private static readonly SPEED: number = 500
-  private static readonly CHARS_TO_CHANGE: number = 3
+  private static readonly CHARS_TO_CHANGE: number = 5
 
   private longestLength: number
   private charsLeft: number[]
@@ -107,53 +105,53 @@ export class CodeLine {
 
 export const CodeLines: CodeLine[] = [
   new CodeLine([
-    `import { ref, type Ref } from "vue"`,
-    `<template>                         `,
-    `<template>                         `
+    `export class CodeLine { private static readonly SPEED: number = 500; private static readonly CHARS_TO_CHANGE: number = 3;`,
+    `<template><svg class="svg far-back" ref="titleBackground"><text                                                          `,
+    `<template><div id="title-bar" class="navbar navbar-expand-sm far-far-front"><div class="navbar-header">                  `
   ]),
   new CodeLine([
-    `                                                      `,
-    `  <svg class="svg" ref="titleBackground">             `,
-    `  <div id="title-bar" class="navbar navbar-expand-sm">`
+    `private longestLength: number; private charsLeft: number[]; private currentIndex: number;           `,
+    `class="font" v-for="(line, i) in codeLines" x="20"                                                  `,
+    `<a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a></div></div>`
   ]),
   new CodeLine([
-    `export class CodeLine {        `,
-    `    <text                      `,
-    `    <div class="navbar-header">`
+    `private isChangingChar: boolean; private intervalId: number; text: string;   `,
+    `:y="getLineStartY(i)">{{ line.text }}</text>                                 `,
+    `<div id="title-area"><title-background/><h1 class="title">George Tiersma</h1>`
   ]),
   new CodeLine([
-    `  private static readonly SPEED: number = 200                                                 `,
-    `      class="font"                                                                            `,
-    `      <a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a>`
+    `isReadyForNextLine: boolean; constructor(private readonly lines: string[]) { this.longestLength = lines.reduce((a, b) =>                       `,
+    `</svg><fa-icon class="icon back" id="chip" icon="fa-solid fa-microchip"/><fa-icon class="icon back" id="wrench" icon="fa-solid fa-wrench"/>    `,
+    `<h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1><button class="btn btn-primary far-front">View Resume</button></div>`
   ]),
   new CodeLine([
-    `  private longestLength: number     `,
-    `      v-for="(line, i) in codeLines"`,
-    `    </div>                          `
+    `a.length > b.length ? a : b ).length; this.charsLeft = [];         `,
+    `<svg class="svg front"><rect :id="${"`bar${ i }`"}"                `,
+    `</template><script setup lang="ts">import { onMounted } from 'vue';`
   ]),
   new CodeLine([
-    `  private charsLeft: number[]`,
-    `      x="-20"                `,
-    `  </div>                     `
+    `this.currentIndex = 0; this.isChangingChar = false; this.intervalId = -1;                                  `,
+    `class="bar" ref="bars" v-for="i in BAR_COUNT"                                                              `,
+    `import gsap from 'gsap'; import ScrollTrigger from "gsap/ScrollTrigger"; gsap.registerPlugin(ScrollTrigger)`
   ]),
   new CodeLine([
-    `  private currentIndex: number`,
-    `      :y="getLineStartY(i)"   `,
-    `                              `
+    `this.text = lines[0]; this.isReadyForNextLine = false; } private setCharsLeft() {`,
+    `:y="barStartYs[i]" :height="barHeights[i]"/>                                     `,
+    `onMounted(() => { gsap.to(#title-bar",                                           `
   ]),
   new CodeLine([
-    `                       `,
-    `    >                  `,
-    `  <div id="title-area">`
+    `this.charsLeft = Array.from( { length: this.longestLength }, (x, i) => i ); }`,
+    `</svg></template><script setup lang="ts">                                    `,
+    `{ scrollTrigger: { trigger: "#bottom-title", start: "bottom top",            `
   ]),
   new CodeLine([
-    `  text: Ref<string>        `,
-    `      {{ line.text.value }}`,
-    `    <title-background/>    `
+    `private getCharIndices() { const indices = []; for ( `,
+    `import { onMounted, reactive,                        `,
+    `toggleActions: "play none none reverse" }, y: 100 } )`
   ]),
   new CodeLine([
-    `           `,
-    `    </text>`,
-    `           `
+    `let i = 0; i < CodeLine.CHARS_TO_CHANGE && this.charsLeft.length > 0; i++`,
+    `ref, watch, type Ref                                                     `,
+    `})</script><style scoped>                                                `
   ])
 ]

@@ -174,6 +174,7 @@ onMounted(() => {
 <style scoped>
 .divided-section {
   top: -50px;
+  position: relative;
 }
 
 .line-color {

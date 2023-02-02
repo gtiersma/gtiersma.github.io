@@ -38,6 +38,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 54pt;
+  font-weight: bolder;
+}
+
 button {
   width: 200px;
   margin: 0 auto;

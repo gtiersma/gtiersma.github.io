@@ -3,7 +3,7 @@
     <text
       class="font"
       v-for="(line, i) in codeLines"
-      x="20"
+      x="70"
       :y="getLineStartY(i)"
     >
       {{ line.text }}
@@ -54,7 +54,7 @@
   const bars: Ref<HTMLElement[]> = ref([])
 
   function getLineStartY(lineIndex: number): number {
-    return lineIndex * (heightWatcher.height.value / codeLines.length)
+    return (lineIndex + 1) * (heightWatcher.height.value / codeLines.length)
   }
 
   function getBarStartY(): number {
@@ -129,6 +129,7 @@
 
 .font {
   font-family: "ExoMd";
+  font-size: 27pt;
 }
 
 .svg {
