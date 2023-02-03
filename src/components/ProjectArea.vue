@@ -4,7 +4,12 @@
 
     <p>A few of the more notable projects that I have worked on</p>
 
-    <div id="projects" class="carousel slide">
+    <div
+      id="projects"
+      class="carousel slide"
+      @mouseenter="showInfo()"
+      @mouseleave="hideInfo()"
+    >
       <div class="carousel-indicators">
         <button
           v-for="i in projects.length"
@@ -18,10 +23,15 @@
       </div>
       <div v-for="(project, i) in projects" class="carousel-inner">
         <div class="carousel-item" :class="i == 0 ? 'active' : ''">
-          <img :src="project.imgPath" :alt="project.title">
+          <img id="cover-image" :src="project.coverImgPath"/>
+          <img class="back" :src="project.imgPath" :alt="project.title"/>
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{ project.title }}</h3>
-            <p v-for="paragraph in project.description">{{ paragraph }}</p>
+            <h3 class="cover-text">{{ project.title }}</h3>
+            <h3 class="text">{{ project.title }}</h3>
+            <div v-for="paragraph in project.description">
+              <p class="cover-text">{{ paragraph }}</p>
+              <p class="text">{{ paragraph }}</p>
+            </div>
             <a class="btn btn-primary" :href="project.imgPath">View Project</a>
           </div>
         </div>
@@ -55,26 +65,87 @@
 </template>
   
 <script setup lang="ts">
+  import gsap from 'gsap';
   import { Project, Projects } from './Projects';
 
   const projects: Project[] = Projects
+
+  let imgTween: GSAPTween | null = null
+  let textTween: GSAPTween | null = null
+
+  function buildTweens() {
+    imgTween = gsap.to(
+      "#cover-image",
+      {
+        duration: 0.5,
+        opacity: "100%"
+      }
+    )
+    textTween = gsap.to(
+      ".cover-text", 
+      {
+        duration: 0.5,
+        opacity: "100%",
+        textShadow: "0 0 10px #000, 0 0 10px #000, 0 0 10px #000, 0 0 10px #000, 0 0 10px #000"
+      }
+    )
+  }
+
+  function showInfo() {
+    if (!imgTween || !textTween) {
+      buildTweens()
+    } else {
+      imgTween.play()
+      textTween.play()
+    }
+  }
+
+  function hideInfo() {
+    imgTween?.reverse()
+    textTween?.reverse()
+  }
 </script>
   
 <style scoped>
   p {
-    padding: 20px 10px;
+    padding: 15px 10px;
   }
 
   img {
     display: block;
     width: 100%;
+    filter: "contrast(99%)"
   }
 
   #projects {
-    margin: 0 25px;
+    max-width: 70%;
+    margin: 0 auto;
   }
 
   #project-area {
     padding-bottom: 100px;
+  }
+
+  #cover-image {
+    position: absolute;
+    opacity: 0;
+  }
+
+  h3.text {
+    opacity: 50%;
+  }
+
+  p.text {
+    opacity: 20%;
+  }
+
+  .text, .cover-text {
+    padding: 5px 0;
+  }
+
+  .cover-text {
+    position: absolute;
+    width: 100%; /* needed to position title directly over other title for some reason */
+    opacity: 0;
   }
 </style>

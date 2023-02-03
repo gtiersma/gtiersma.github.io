@@ -7,6 +7,7 @@ export class Project {
   ) {}
 
   get imgPath(): string { return `public/${ this.img }` }
+  get coverImgPath(): string { return `public/cover-${ this.img }` }
 
   get id(): string {
     return this.title.replace(" ", "")
@@ -53,13 +54,8 @@ Bootstrap for styling.\
     "sandpaper.png",
     [
       "\
-Create images of 3D models using only 2D images. Sand Paper takes texture images of displacement, \
-bump and specular maps and creates a 3D model out of them. Although it appears to be just another \
-terrain generation program, Sand Paper is different from those on the market in how it fully \
-supports all color channels (including alpha) with the textures it uses, it generates populations \
-(such as trees) using only images and camera navigation is performed using just 2 sliding range \
-controls that can move to any angle. This means that no knowledge in how to use 3D modeling \
-software is required to use any part of this program.\
+Create images of 3D models using only 2D images. Sand Paper takes texture images and creates a 3D \
+model out of them. No need to know 3D modeling to use this program.\
       ",
       "\
 SandPaper was builting using Java 8 with the JavaFx library for the GUI and 3D object generation.\
