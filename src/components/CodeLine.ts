@@ -55,11 +55,11 @@ export class CodeLine {
 
     let newText = this.text.substring(0, orderedIndices[0])
 
-    orderedIndices.forEach((it, i) => {
+    orderedIndices.forEach((it, i) => 
       newText = newText +
         this.nextLine[it] +
         this.text.substring(it + 1, orderedIndices[i + 1])
-    })
+    )
 
     return newText
   }
@@ -126,7 +126,7 @@ export const CodeLines: CodeLine[] = [
   ]),
   new CodeLine([
     `a.length > b.length ? a : b ).length; this.charsLeft = [];         `,
-    `<svg class="svg front"><rect :id="${"`bar${ i }`"}"                `,
+    `<svg class="svg front"><rect :id="${"`bar${ i }`"}"                     `,
     `</template><script setup lang="ts">import { onMounted } from 'vue';`
   ]),
   new CodeLine([

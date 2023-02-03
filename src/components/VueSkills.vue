@@ -37,7 +37,7 @@ img {
   object-fit: scale-down;
 }
 
-h7 {
+h3 {
   display: inline-block;
   text-align: center;
 }
