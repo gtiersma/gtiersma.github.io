@@ -83,6 +83,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+  h3 {
+    padding: 0;
+  }
+
   .faq {
     background-color: #203429;
     padding: 10px;

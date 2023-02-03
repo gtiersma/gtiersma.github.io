@@ -1,6 +1,6 @@
 <template>
-  <div class="container-sm">
-    <h6>Contact</h6>
+  <div>
+    <h5>Contact</h5>
 
     <ul>
       <li>
@@ -30,8 +30,9 @@
 </script>
   
 <style scoped>
-  h6 {
+  h5 {
     padding: 0 0 5px 30px;
+    font-weight: bold;
   }
 
   ul {

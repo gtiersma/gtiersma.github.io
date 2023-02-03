@@ -1,5 +1,5 @@
 <template>
-  <div class="container-sm divided-section front">
+  <div class="divided-section front">
     <div class="divider">
       <svg
         :width="topCurve?.xStartCss"
@@ -131,8 +131,7 @@ class Curve {
   ) {}
 
   get pageWidth(): number {
-    if (!this.pageWidthWatcher) throw "NPE from PAGE WIDTH WATCHER"
-    return this.pageWidthWatcher.width.value ?? 0
+    return this.pageWidthWatcher?.width.value ?? 0
   }
 
   get distanceFromRightEdge(): number {

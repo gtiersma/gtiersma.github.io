@@ -107,10 +107,6 @@
 </script>
   
 <style scoped>
-  p {
-    padding: 15px 10px;
-  }
-
   img {
     display: block;
     width: 100%;
