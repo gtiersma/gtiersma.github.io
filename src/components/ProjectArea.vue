@@ -2,6 +2,8 @@
   <div id="project-area">
     <h2>Work that I have done</h2>
 
+    <vue-br/>
+    
     <p>A few of the more notable projects that I have worked on</p>
 
     <div

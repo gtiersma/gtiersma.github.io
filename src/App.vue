@@ -14,7 +14,7 @@
     </li>
   </ul>
 
-  <background :page-width="widthWatcher"/>
+  <background/>
   <title-area/>
 
   <div class="container" ref="container">

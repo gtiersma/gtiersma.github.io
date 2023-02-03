@@ -2,6 +2,8 @@
   <divided-section :page-width="props.pageWidth">
     <h2>About Me</h2>
 
+    <vue-br/>
+
     <vue-faq question="Who are you?" :id="1">
       <p>
         My name is George Tiersma. Living in Oregon, I perform remote work on specialty

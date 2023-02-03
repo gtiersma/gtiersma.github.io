@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+    <vue-br/>
+    
     <h3>{{ title }}</h3>
-    <br/>
 
     <div class="body">
       <div class="card far-front" v-for="skill in skills">
@@ -50,7 +51,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-bottom: 100px;
+  padding: 0 100px 100px;
 }
 
 .card {

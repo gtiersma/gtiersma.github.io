@@ -14,7 +14,6 @@
     >
       <rect
         v-for="y in group"
-        :width="pageWidth?.width.value"
         :height="LINE_HEIGHT"
         :y="y"
       />
@@ -26,10 +25,6 @@
 import { SizeWatcher } from '@/SizeWatcher';
 import gsap from 'gsap';
 import { computed, onMounted, ref, type ComputedRef, type Ref, watch, nextTick } from 'vue';
-
-const props = defineProps({
-  pageWidth: SizeWatcher
-})
 
 const LINE_SPACING: number = 10
 const LINE_HEIGHT: number = 10
@@ -127,7 +122,7 @@ svg {
 }
 
 rect {
-  width: 100%;
+  width: 100vw;
   color: lightgray;
 }
 </style>

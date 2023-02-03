@@ -2,6 +2,8 @@
   <divided-section :page-width="props.pageWidth">
     <h2>Technical Experience</h2>
 
+    <vue-br/>
+    
     <p>As a fast-learner, I believe that the ability to learn new tools
     and adapt to them is much more important than what one may already know.
     However, for those interested in what technologies I have already used,
