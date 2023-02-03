@@ -20,11 +20,25 @@ export class SizeWatcher {
   }
 
   private updateWidth() {
-    this.width.value = this.element.value?.clientWidth ?? 0
+    const element = this.element.value
+    if (!!element && !!this.computedStyle) {
+      const widthWithPadding = element.clientWidth
+
+      this.width.value = widthWithPadding -
+        parseFloat(this.computedStyle.paddingLeft) -
+        parseFloat(this.computedStyle.paddingRight)
+    }
   }
 
   private updateHeight() {
-    this.height.value = this.element.value?.clientHeight ?? 0
+    const element = this.element.value
+    if (!!element && !!this.computedStyle) {
+      const heightWithPadding = element.clientHeight
+      
+      this.height.value = heightWithPadding -
+        parseFloat(this.computedStyle.paddingTop) -
+        parseFloat(this.computedStyle.paddingBottom)
+    }
   }
 
   private handleTimeout() {
@@ -43,5 +57,11 @@ export class SizeWatcher {
       "resize",
       () => this.handleTimeout()
     )
+  }
+
+  private get computedStyle(): CSSStyleDeclaration | null {
+    const element = this.element.value
+    if (!element) return null
+    return getComputedStyle(element)
   }
 }

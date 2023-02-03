@@ -40,7 +40,7 @@
       </svg>
 
       <svg
-        :width="topCurve?.rightEdgeDistanceCss"
+        :width="topCurve?.rightEdgeDistanceCss?.value"
         :height="topCurve?.height"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
@@ -49,7 +49,7 @@
           class="line-color"
           x="0"
           y="96px"
-          width="1px"
+          :width="topCurve?.rightEdgeDistanceCss?.value"
           height="5px"
         />
       </svg>
@@ -101,7 +101,7 @@
       </svg>
 
       <svg
-        :width="bottomCurve?.rightEdgeDistanceCss"
+        :width="bottomCurve?.rightEdgeDistanceCss?.value"
         :height="bottomCurve?.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
@@ -110,7 +110,7 @@
           class="line-color"
           x="0"
           y="0"
-          width="1px"
+          :width="topCurve?.rightEdgeDistanceCss?.value"
           height="5px"
         />
       </svg>
@@ -120,54 +120,24 @@
 
 <script setup lang="ts">
 import { SizeWatcher } from '@/SizeWatcher';
-import { type Ref, ref, onMounted } from 'vue';
-
-class Curve {
-  constructor(
-    readonly xStart: number,
-    readonly width: number,
-    readonly height: number,
-    private readonly pageWidthWatcher: SizeWatcher | undefined
-  ) {}
-
-  get pageWidth(): number {
-    return this.pageWidthWatcher?.width.value ?? 0
-  }
-
-  get distanceFromRightEdge(): number {
-    const distance = this.pageWidth - (this.xStart + this.width)
-    return distance < 0 ? 0 : distance
-  }
-
-  get xStartCss(): string { return `${ this.xStart }px` }
-  get widthCss(): string { return `${ this.width }px` }
-  get heightCss(): string { return `${ this.height }px` }
-  get rightEdgeDistanceCss(): string {
-    return `${ this.distanceFromRightEdge }px`
-  }
-}
+import { Curve } from './Curve';
 
 const props = defineProps({
   pageWidth: SizeWatcher
 })
 
-const topCurve: Ref<Curve | null> = ref(null)
-const bottomCurve: Ref<Curve | null> = ref(null)
-
-onMounted(() => {
-  topCurve.value = new Curve(
-    150,
-    50,
-    50,
-    props.pageWidth
-  )
-  bottomCurve.value = new Curve(
-    250,
-    50,
-    30,
-    props.pageWidth
-  )
-})
+let topCurve: Curve | null = new Curve(
+  150,
+  50,
+  50,
+  props.pageWidth
+)
+let bottomCurve: Curve | null = new Curve(
+  250,
+  50,
+  30,
+  props.pageWidth
+)
 </script>
 
 <style scoped>
