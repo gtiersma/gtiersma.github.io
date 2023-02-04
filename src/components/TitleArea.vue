@@ -5,24 +5,33 @@
     </div>
   </div>
 
-  <div id="title-area">
-    <title-background/>
+  <div id="title-area" ref="titleArea">
+    <title-background :height-watcher="heightWatcher"/>
 
     <h1 class="title fnt-text-dark">George Tiersma</h1>
     <h1 id="bottom-title" class="title fnt-text-dark">Junior Fullstack Software Engineer</h1>
 
     <button class="btn thm-button far-front">View Resume</button>
+
+    <!--<title-foreground :height-watcher="heightWatcher"/>-->
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { SizeWatcher } from '@/SizeWatcher';
 
 gsap.registerPlugin(ScrollTrigger)
 
+const titleArea: Ref<HTMLElement | null> = ref(null)
+
+const heightWatcher: SizeWatcher = new SizeWatcher(titleArea, false, true)
+
 onMounted(() => {
+  heightWatcher.start()
+
   gsap.to(
     "#title-bar",
     {
@@ -32,6 +41,16 @@ onMounted(() => {
         toggleActions: "play none none reverse"
       },
       y: 100
+    }
+  ),
+
+  gsap.to(
+    ".title",
+    {
+      textShadow: "0 0 30px #d5792c, 0 0 30px #d5792c, 0 0 30px #d5792c",
+      duration: 3,
+      repeat: -1,
+      yoyo: true
     }
   )
 })

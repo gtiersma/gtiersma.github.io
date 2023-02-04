@@ -25,6 +25,7 @@ import VueBr from './components/VueBr.vue'
 import Background from './components/Background.vue'
 import DividedSection from './components/DividedSection.vue'
 import TitleBackground from './components/TitleBackground.vue'
+import TitleForeground from './components/TitleForeground.vue'
 import { DEFAULT_TIPPY_PROPS } from './Constants'
 
 createApp(App)
@@ -35,5 +36,6 @@ createApp(App)
   .component("Background", Background)
   .component("DividedSection", DividedSection)
   .component("TitleBackground", TitleBackground)
+  .component("TitleForeground", TitleForeground)
   .use(VueTippy, { defaultProps: DEFAULT_TIPPY_PROPS })
   .mount('#app')
