@@ -1,5 +1,5 @@
 <template>
-  <div class="faq">
+  <div class="faq thm-background-dark fnt-text-dark">
     <div class="collapse-header" @click="click()">
       <h4 class="question">{{ props.question }}</h4>
       <h3 class="character" :id="showId">+</h3>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="collapse-body" :id="bodyId" ref="collapseBody">
-      <br/>
+      <vue-br/>
       <slot/>
     </div>
   </div>
@@ -88,7 +88,6 @@ onMounted(() => {
   }
 
   .faq {
-    background-color: #203429;
     padding: 10px;
     margin: 20px 100px;
     border-radius: 20px;

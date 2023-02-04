@@ -1,6 +1,6 @@
 <template>
   <div class="divided-section front">
-    <div class="divider">
+    <div class="divider top-divider">
       <svg
         :width="topCurve?.xStartCss"
         :height="topCurve?.heightCss"
@@ -8,14 +8,14 @@
         preserveAspectRatio="none"
       >
         <rect
-          class="background-color"
+          class="thm-background"
           x="0"
           y="0"
           width="1px"
           height="100px"
         />
         <rect
-          class="line-color"
+          class="thm-main-dark"
           x="0"
           y="0"
           width="1px"
@@ -30,11 +30,11 @@
         preserveAspectRatio="none"
       >
         <path
-          class="line-color"
+          class="thm-main-dark"
           d="M -0.52916667,0 C 6.0518304,0.07940835 11.889344,9.9988105 13.229167,13.229167 c 1.394015,3.347792 7.350175,12.691392 13.758333,12.7 V 26.9875 H -0.52916667 Z"
         />
         <path
-          class="background-color"
+          class="thm-background"
           d="m -1.4552085,1.1 c 6.5809972,0.07941 12.4185115,9.9988109 13.7583345,13.2291669 1.394015,3.347792 7.350175,12.691392 13.758333,12.7 v 1.058333 H -1.4552085 Z"
         />
       </svg>
@@ -46,7 +46,7 @@
         preserveAspectRatio="none"
       >
         <rect
-          class="line-color"
+          class="thm-main-dark"
           x="0"
           y="96px"
           :width="topCurve?.rightEdgeDistanceCss?.value"
@@ -55,11 +55,11 @@
       </svg>
     </div>
 
-    <div class="background-color content">
+    <div class="thm-background content">
       <slot/>
     </div>
 
-    <div class="divider">
+    <div class="divider bottom-divider">
       <svg
         :width="bottomCurve?.xStartCss"
         :height="bottomCurve?.heightCss"
@@ -67,14 +67,14 @@
         preserveAspectRatio="none"
       >
         <rect
-          class="background-color"
+          class="thm-background"
           x="0"
           y="0"
           width="1px"
           height="100px"
         />
         <rect
-          class="line-color"
+          class="thm-main-dark"
           x="0"
           y="95px"
           width="1px"
@@ -89,12 +89,12 @@
         preserveAspectRatio="none"
       >
         <path
-          class="line-color"
+          class="thm-main-dark"
           d="M -0.52916667,0 C 6.0518304,0.07940835 11.889344,9.9988105 13.229167,13.229167 c 1.394015,3.347792 7.350175,12.691392 13.758333,12.7 V 26.9875 H -0.52916667 Z"
           transform="scale(1, -1)"
         />
         <path
-          class="background-color"
+          class="thm-background"
           d="m -1.4552085,1 c 6.5809972,0.07941 12.4185115,9.9988109 13.7583345,13.2291669 1.394015,3.347792 7.350175,12.691392 13.758333,12.7 v 1.058333 H -1.4552085 Z"
           transform="scale(1, -1)"
         />
@@ -107,7 +107,7 @@
         preserveAspectRatio="none"
       >
         <rect
-          class="line-color"
+          class="thm-main-dark"
           x="0"
           y="0"
           :width="topCurve?.rightEdgeDistanceCss?.value"
@@ -141,26 +141,15 @@ let bottomCurve: Curve | null = new Curve(
 </script>
 
 <style scoped>
-.divided-section {
-  top: -50px;
-  position: relative;
-}
-
-.line-color {
-  fill: #19c;
-}
-
-.background-color {
-  fill: #a20;
-  background-color: #a20;
-}
-
 .divider {
+  position: relative;
+  top: -50px;
   width: 100%;
-  display: inline;
 }
 
 .content {
-  padding: 20px 0 50px 0;
+  position: relative;
+  top: -50px;
+  padding: 50px 0 20px 0;
 }
 </style>

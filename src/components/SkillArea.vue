@@ -1,15 +1,18 @@
 <template>
   <divided-section :page-width="props.pageWidth">
-    <h2>Technical Experience</h2>
+    <h2 class="fnt-main">Technical Experience</h2>
 
     <vue-br/>
     
-    <p>As a fast-learner, I believe that the ability to learn new tools
-    and adapt to them is much more important than what one may already know.
-    However, for those interested in what technologies I have already used,
-    I provide that information here.</p>
+    <p class="fnt-text">
+      As a fast-learner, I believe that the ability to learn new tools and adapt to them is much more
+      important than what one may already know. However, for those interested in what technologies I have
+      already used, I provide that information here.
+    </p>
 
-    <p class="fine-print">(*) - Indicates only begginer-lever experience. Further guidance or education would be necessary.</p>
+    <p class="fine-print fnt-main-dark">
+      (*) - Indicates only begginer-lever experience. Further guidance or education would be necessary.
+    </p>
 
     <vue-skills title="Programming Languages" :skills="languages"/>
     <vue-skills title="Libraries & Frameworks" :skills="libraries"/>

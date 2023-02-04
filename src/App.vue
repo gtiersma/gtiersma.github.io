@@ -1,23 +1,23 @@
 <template>
   <ul class="nav flex-column nav-menu far-front">
     <li class="nav-item">
-      <a class="nav-link" href="#">About Me</a>
+      <a class="nav-link fnt-text-light" href="#">About Me</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Work I Do</a>
+      <a class="nav-link fnt-text-light" href="#">Work I Do</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">What I Know</a>
+      <a class="nav-link fnt-text-light" href="#">What I Know</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Contact</a>
+      <a class="nav-link fnt-text-light" href="#">Contact</a>
     </li>
   </ul>
 
   <background/>
   <title-area/>
 
-  <div class="container" ref="container">
+  <div class="container thm-background-dark" ref="container">
     <faq-area :page-width="widthWatcher"/>
     <project-area/>
     <skill-area :page-width="widthWatcher"/>
@@ -47,6 +47,10 @@ onMounted(() => widthWatcher.start())
     left: 0;
     padding-top: 100px;
     height: 100%;
-    background-image: linear-gradient(90deg, #000, transparent);
+    background-image: linear-gradient(90deg, #262425, transparent);
+  }
+
+  .container {
+    padding: 0
   }
 </style>

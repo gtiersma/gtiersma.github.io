@@ -2,14 +2,14 @@
   <div class="container">
     <vue-br/>
     
-    <h3>{{ title }}</h3>
+    <h3 class="fnt-text-dark">{{ title }}</h3>
 
     <div class="body">
-      <div class="card far-front" v-for="skill in skills">
+      <div class="card thm-background-dark far-front" v-for="skill in skills">
         <img class="card-image-top" :src="getPath(skill.img)"/>
         <div class="card-body">
-          <h6>{{ skill.title }}</h6>
-          <p v-show="skill.isPoor">*</p>
+          <h6 class="fnt-text-dark">{{ skill.title }}</h6>
+          <p v-show="skill.isPoor" class="fnt-main-dark">*</p>
         </div>
       </div>
     </div>
@@ -38,13 +38,14 @@ img {
   object-fit: scale-down;
 }
 
-h3 {
+h6 {
   display: inline-block;
   text-align: center;
 }
 
 p {
   display: inline;
+  padding: 0;
 }
 
 .body {
@@ -57,7 +58,7 @@ p {
 .card {
   width: 100px;
   margin: 10px;
-  background-color: #e50;
+  border: none;
 }
 
 .card-body {

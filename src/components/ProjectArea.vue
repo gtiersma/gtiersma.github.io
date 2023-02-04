@@ -1,6 +1,6 @@
 <template>
-  <div id="project-area">
-    <h2>Work that I have done</h2>
+  <div id="project-area" class="fnt-text-dark">
+    <h2 class="fnt-main-dark">Work that I have done</h2>
 
     <vue-br/>
     
@@ -8,7 +8,7 @@
 
     <div
       id="projects"
-      class="carousel slide"
+      class="bdr-main carousel slide"
       @mouseenter="showInfo()"
       @mouseleave="hideInfo()"
     >
@@ -118,6 +118,10 @@
   #projects {
     max-width: 70%;
     margin: 0 auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
   }
 
   #project-area {

@@ -1,7 +1,7 @@
 <template>
-  <svg class="svg far-back" ref="titleBackground">
+  <svg class="svg thm-background far-back" ref="titleBackground">
     <text
-      class="font"
+      class="font thm-background-dark"
       v-for="(line, i) in codeLines"
       x="70"
       :y="getLineStartY(i)"
@@ -10,13 +10,21 @@
     </text>
   </svg>
 
-  <fa-icon class="icon back" id="chip" icon="fa-solid fa-microchip"/>
-  <fa-icon class="icon back" id="wrench" icon="fa-solid fa-wrench"/>
+  <fa-icon
+    class="icon fnt-background-dark back"
+    id="chip"
+    icon="fa-solid fa-microchip"
+  />
+  <fa-icon
+    class="icon fnt-background-dark back"
+    id="wrench"
+    icon="fa-solid fa-wrench"
+  />
 
   <svg class="svg front">
     <rect
       :id="`bar${ i }`"
-      class="bar"
+      class="bar thm-background"
       ref="bars"
       v-for="i in BAR_COUNT"
       :y="barStartYs[i]"

@@ -1,15 +1,15 @@
 <template>
-  <div id="title-bar" class="navbar navbar-expand-sm far-far-front">
+  <div id="title-bar" class="navbar navbar-expand-sm thm-main far-far-front">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a>
+      <a class="navbar-brand fnt-text-dark" href="#">George Tiersma - Junior Fullstack Software Engineer</a>
     </div>
   </div>
 
   <div id="title-area">
     <title-background/>
 
-    <h1 class="title">George Tiersma</h1>
-    <h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1>
+    <h1 class="title fnt-background-dark">George Tiersma</h1>
+    <h1 id="bottom-title" class="title fnt-background-dark">Junior Fullstack Software Engineer</h1>
 
     <button class="btn btn-primary far-front">View Resume</button>
   </div>
@@ -57,7 +57,6 @@ button {
   left: 0;
   top: -100px;
   width: 100%;
-  background-color: #fff;
   justify-content: center;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <svg>
-    <rect width="100%" height="3px"/>
+    <rect class="thm-main-dark" width="100%" height="3px"/>
   </svg>
 </template>
 
@@ -10,13 +10,12 @@
 <style scoped>
 svg {
   display: block;
-  width: 80%;
-  height: 3px;
+  width: 90%;
+  height: 2px;
   margin: 10px auto 50px auto;
 }
 
 rect {
   display: block;
-  fill: olivedrab;
 }
 </style>

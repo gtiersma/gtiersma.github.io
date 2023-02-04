@@ -1,5 +1,5 @@
 <template>
-  <svg class="far-far-back" ref="svg">
+  <svg class="thm-main far-far-back" ref="svg">
     <defs>
       <filter id="backgroud-blur" x="0" y="0">
         <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
@@ -14,6 +14,7 @@
     >
       <rect
         v-for="y in group"
+        class="thm-main-light"
         :height="LINE_HEIGHT"
         :y="y"
       />
@@ -116,13 +117,11 @@ onMounted(() => {
 <style scoped>
 svg {
   position: fixed;
-  background-color: darkcyan;
   height: 100vh;
   width: 100vw;
 }
 
 rect {
   width: 100vw;
-  color: lightgray;
 }
 </style>
