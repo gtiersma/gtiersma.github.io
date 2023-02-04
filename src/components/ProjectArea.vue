@@ -129,7 +129,7 @@
   }
 
   #project-area {
-    padding-bottom: 100px;
+    padding: 20px 0 100px 0;
   }
 
   #cover-image {

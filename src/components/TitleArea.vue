@@ -1,7 +1,7 @@
 <template>
   <div id="title-bar" class="navbar navbar-expand-sm thm-main far-far-front">
     <div class="navbar-header">
-      <a class="navbar-brand fnt-text-dark" href="#">George Tiersma - Junior Fullstack Software Engineer</a>
+      <a class="navbar-brand fnt-text-dark" @click="toPageTop()">George Tiersma - Junior Fullstack Software Engineer</a>
     </div>
   </div>
 
@@ -28,6 +28,8 @@ gsap.registerPlugin(ScrollTrigger)
 const titleArea: Ref<HTMLElement | null> = ref(null)
 
 const heightWatcher: SizeWatcher = new SizeWatcher(titleArea, false, true)
+
+function toPageTop() { window.scrollTo(0, 0) }
 
 onMounted(() => {
   heightWatcher.start()
