@@ -47,7 +47,7 @@ onMounted(() => widthWatcher.start())
     left: 0;
     padding-top: 100px;
     height: 100%;
-    background-image: linear-gradient(90deg, #262425, transparent);
+    background-image: linear-gradient(90deg, #f1f1f1, transparent, transparent);
   }
 
   .container {

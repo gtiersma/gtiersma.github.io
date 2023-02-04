@@ -34,7 +34,7 @@
               <p class="cover-text">{{ paragraph }}</p>
               <p class="text">{{ paragraph }}</p>
             </div>
-            <a class="btn btn-primary" :href="project.imgPath">View Project</a>
+            <a class="btn thm-button" :href="project.imgPath">View Project</a>
           </div>
         </div>
       </div>
@@ -113,6 +113,10 @@
     display: block;
     width: 100%;
     filter: "contrast(99%)"
+  }
+
+  a {
+    padding: 5px 30px;
   }
 
   #projects {

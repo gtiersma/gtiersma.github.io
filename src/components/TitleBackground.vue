@@ -133,11 +133,13 @@
 .icon {
   position: absolute;
   font-size: 256pt;
+  filter: drop-shadow(0 0 10px #a73b0c);
 }
 
 .font {
   font-family: "ExoMd";
   font-size: 27pt;
+  filter: drop-shadow(0 0 5px #d5792c) drop-shadow(0 0 5px #d5792c);
 }
 
 .svg {

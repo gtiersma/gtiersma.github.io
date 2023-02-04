@@ -3,20 +3,29 @@
 
 body {
   overflow-x: hidden;
+  font-family: "RobotoMd";
 }
 
 h2 {
-  font-weight: bold;
+  font-family: "RobotoBd";
   padding: 30px 0 0 30px;
 }
 
 h3 {
-  font-weight: bold;
+  font-family: "RobotoBd";
   padding: 20px 0 0 50px;
 }
 
 p {
   padding: 10px 100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a73b0c;
 }
 
 .far-far-back {

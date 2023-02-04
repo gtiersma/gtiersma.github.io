@@ -1,5 +1,5 @@
 <template>
-  <div class="divided-section front">
+  <div class="divided-section far-front">
     <div class="divider top-divider">
       <svg
         :width="topCurve?.xStartCss"

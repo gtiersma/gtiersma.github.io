@@ -73,3 +73,13 @@
 .fnt-text-light {
   color: #636162;
 }
+
+.thm-button {
+  background-color: #a73b0c;
+  color: #f1f1f1
+}
+
+.thm-button:hover {
+  background-color: #d5792c;
+  color: #f1f1f1
+}

@@ -8,10 +8,10 @@
   <div id="title-area">
     <title-background/>
 
-    <h1 class="title fnt-background-dark">George Tiersma</h1>
-    <h1 id="bottom-title" class="title fnt-background-dark">Junior Fullstack Software Engineer</h1>
+    <h1 class="title fnt-text-dark">George Tiersma</h1>
+    <h1 id="bottom-title" class="title fnt-text-dark">Junior Fullstack Software Engineer</h1>
 
-    <button class="btn btn-primary far-front">View Resume</button>
+    <button class="btn thm-button far-front">View Resume</button>
   </div>
 </template>
 
@@ -50,6 +50,7 @@ button {
 
 .title {
   font-family: "ExoBd";
+  text-shadow: 0 0 3px #cb6709, 0 0 3px #cb6709, 0 0 3px #cb6709;
 }
 
 #title-bar {
