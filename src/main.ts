@@ -1,10 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import VueTippy from 'vue-tippy'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/themes/light.css'
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 
@@ -26,7 +22,6 @@ import Background from './components/Background.vue'
 import DividedSection from './components/DividedSection.vue'
 import TitleBackground from './components/TitleBackground.vue'
 import TitleForeground from './components/TitleForeground.vue'
-import { DEFAULT_TIPPY_PROPS } from './Constants'
 
 createApp(App)
   .component("FaIcon", FontAwesomeIcon)
@@ -37,5 +32,4 @@ createApp(App)
   .component("DividedSection", DividedSection)
   .component("TitleBackground", TitleBackground)
   .component("TitleForeground", TitleForeground)
-  .use(VueTippy, { defaultProps: DEFAULT_TIPPY_PROPS })
   .mount('#app')
