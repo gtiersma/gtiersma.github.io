@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg thm-background far-back" ref="titleBackground">
+  <svg class="svg far-back" ref="titleBackground">
     <text
       class="font thm-background-dark"
       v-for="(line, i) in codeLines"

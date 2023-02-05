@@ -6,6 +6,7 @@
   </div>
 
   <div id="title-area" ref="titleArea">
+    <div class="back-background thm-background far-far-back"/>
     <title-background :height-watcher="heightWatcher"/>
 
     <h1 class="title fnt-text-dark">George Tiersma</h1>
@@ -67,6 +68,12 @@ h1 {
 button {
   width: 200px;
   margin: 0 auto;
+}
+
+.back-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .title {

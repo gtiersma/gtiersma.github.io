@@ -127,14 +127,14 @@ const props = defineProps({
 })
 
 let topCurve: Curve | null = new Curve(
-  150,
-  50,
+  250,
+  100,
   50,
   props.pageWidth
 )
 let bottomCurve: Curve | null = new Curve(
-  250,
-  50,
+  350,
+  100,
   30,
   props.pageWidth
 )
