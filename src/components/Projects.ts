@@ -34,13 +34,11 @@ by the company, and many small fixes and improvements.\
   ),
   new Project(
     "This website",
-    "",
+    "website.png",
     [
       "\
-Carefully programmed by hand, this website is a project of mine by itself. No website generation \
-tools were used in the making of this website. However, there were external libraries made by \
-others that play a part in this website (it would be far too time consuming to design all of this \
-using only HTML, CSS and vanilla JavaScript).\
+Carefully programmed by hand, this website is a project of mine by itself. However, external \
+libraries made by others play a part in this website.\
       ",
       "\
 Libraries used in the creation of this website include Vue 3.0, Greensock's gsap for animation and \

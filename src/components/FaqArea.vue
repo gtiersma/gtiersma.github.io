@@ -7,28 +7,27 @@
 
       <vue-faq question="Who are you?" :id="1">
         <p>
-          My name is George Tiersma. Living in Oregon, I perform remote work on specialty
+          My name is George Tiersma. Living in Oregon, I work remotely with specialty
           photo-management software at <a href="https://digitalfusion.net">DigitalFusion</a>, located
           in Las Angeles. The software I work on is known as
           <a href="https://www.dfstudio.com">DF Studio</a>.
         </p>
         <p>
-          Being a fullstack engineer at my job, I work on the user interface, the database and
+          Being a fullstack engineer, I work with the user interface, the database and
           everything inbetween on a regular basis.
         </p>
         <p>
-          Most of the work I have done so far involves the creation of backend tools, many of which
+          Most of the work I have done involves the creation of backend tools. Many of the tools I have developed
           have been of great use to the other developers, as well as the technical support team.
         </p>
         <p>
-          I have also spent quite a bit of time upgrading and cleaning old, messy code to modern
+          I have also spent quite a bit of time upgrading and cleaning outdated code to modern
           standards.
         </p>
       </vue-faq>
       <vue-faq question="How do you approach software engineering?" :id="2">
         <p>
-          I am still a junior, so my experience is limited, but here is what I do to the best of my
-          knowledge:
+          I am still always learning, but to the best of my current knowledge, this is my approach:
         </p>
         <vue-br/>
         <p>
@@ -47,38 +46,40 @@
           </li>
         </ul>
         <p>
-          After I have these questions answered (either answered by myself, others or both), I begin to
-          plan for how the data should flow through the stack. Once I have a general plan of how I
-          should progress, then I begin programming the most basic functionality.
+          After I have these questions answered (whether by myself or by the opinions of others),
+          I begin to plan for how the data should flow through the stack. Once I have a general
+          plan of how to progress, I then begin programming the most basic functionality, and
+          continue progressing from there.
         </p>
         <vue-br/>
         <p>
           When working with finer details (such as bug fixes and small improvements), the focus is on
-          keeping the changes I made legible. However, there may be cases where I will sacrifice
-          readability for stability or performance.
+          keeping the changes I made legible (or documented). However, there may be rare cases where I will
+          sacrifice readability for stability or performance.
         </p>
         <p>
           For example, generally I always will prefer to use a <code>forEach()</code> extension
           function in languages where it is available to keep the code minimal and readable. However,
           if I am working in a location where performance may be a concern (such as within multiple
           nested loops), I may prefer to use a basic <code>for</code> loop to have better control over
-          limiting the number of iterations that may occur. If the resulting code block is even
-          slightly difficult to understand, I will add an inline, descriptive comment to better
-          communicate its purpose.
+          limiting the number of iterations that may occur.
+        </p>
+        <p>
+          But if the resulting code block is even slightly difficult to understand, I will add an inline,
+          descriptive comment to better communicate its purpose.
         </p>
       </vue-faq>
       <vue-faq question="What makes you different?" :id="3">
         <ul>
           <li>
-            I feel I prioritize clean and understandable code more than most developers. I focus
-            greatly on the following:
+            I would think that I prioritize clean and understandable code more than most developers.
+            I focus greatly on the following:
             <ul>
               <li>
                 Naming variables & methods in a way that most developers would be able to understand
               </li>
               <li>
-                Commenting if a code block looks as if it would take any ordinary developer time to
-                understand
+                Adding comments in portions of code that may not be easily understood
               </li>
               <li>
                 Written communication. I have been complimented on this on multiple occasions.
@@ -94,15 +95,14 @@
           <li>
             Instead of just mindlessly building what I am told, I always put myself in the shoes of
             the end user. I ask myself, "What would I want to see and do if I were to personally use
-            this?" I let the answer to that question guide my progression.
+            this?". I let the answer to that question guide my progression.
           </li>
         </ul>
       </vue-faq>
       <vue-faq question="What drives your passion for software?" :id="4">
         <p>
           It is the idea that I am working on a part of something that will be used to help thousands
-          of other people. This keeps me serious about my work and focused on delivering a quality
-          product.
+          of others. This keeps me serious about my work and focused on delivering a quality product.
         </p>
         <p>
           Also, I have always found enjoyment in orderly mathematics and solving technical problems
@@ -112,19 +112,19 @@
       </vue-faq>
       <vue-faq question="What would you say makes for quality code?" :id="5">
         <p>
-          I am still a junior, so my experience is limited, so here is how I would answer this
-          question to the best of my knowledge:
+          I am always learning and have much experience yet to gain, but to the best of my knowledge,
+          this is how I would answer the question:
         </p>
         <ul>
           <li>
-            Most of all, it needs to actually work.
+            Most of all, it needs to actually work. It should do what it is intended to do well.
           </li>
           <li>
-            Second most of all, it needs to be fully understandable. Not only for other developers,
-            but also for when the developer who programmed it has to revisit the code weeks later.
+            Secondly, it needs to be fully understandable. Not only for other developers,
+            but also for when the one who programmed it has to revisit it again later.
           </li>
           <li>
-            Third most of all, it should not be a resource hog. Nested loops can be deadly. It can be
+            Thirdly, it should not be a resource hog. Nested loops can be deadly. It can be
             good to limit the number of iterations however possible in those cases.
           </li>
         </ul>
@@ -190,7 +190,7 @@
             odd bug, but some of the features it has can save a lot of time.
           </li>
           <li>
-            As for lightweight IDEs, VSCode is an excellent tool. For such a simple program, it can
+            As for lightweight IDEs, <b>VSCode</b> is an excellent tool. For such a simple program, it can
             do so much.
           </li>
         </ul>
@@ -202,10 +202,10 @@
           safely update complicated sets of data.
         </p>
         <p>
-          Outside of work, Photoshop is a past-time I really enjoy when I am not programming. I have
-          over time learned how to composite images together to make virtually anything look like
-          reality. I also like to hand-draw pictures and add color, texture, light and other details
-          to them through image-editing software.
+          Outside of work, Photoshop is a past-time I really enjoy when I am not programming. Over time, 
+          I have learned how to composite images together to make virtually anything look like
+          reality. I also like to hand-draw pictures, scan them to my PC, and add color, texture, light
+          and other details to them through image-editing software.
         </p>
       </vue-faq>
     </div>

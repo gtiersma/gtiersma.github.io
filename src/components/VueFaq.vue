@@ -73,7 +73,7 @@ const hideCharacterTween: ComputedRef<GSAPTween> = computed(() =>
 )
 
 onMounted(() => {
-  bodyHeight.value = collapseBody.value?.clientHeight ?? 0
+  bodyHeight.value = (collapseBody.value?.clientHeight ?? 0) + 50
   gsap.set(
     `#${ bodyId.value }`,
     { height: 0 }

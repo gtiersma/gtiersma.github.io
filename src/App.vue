@@ -96,6 +96,10 @@ onMounted(() => widthWatcher.start())
 </script>
 
 <style scoped>
+  a {
+    cursor: pointer;
+  }
+
   .nav-menu {
     position: fixed;
     left: 0;

@@ -65,6 +65,10 @@ h1 {
   font-weight: bolder;
 }
 
+a {
+  cursor: pointer;
+}
+
 button {
   width: 200px;
   margin: 0 auto;

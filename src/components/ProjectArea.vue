@@ -77,7 +77,7 @@
 
   function buildTweens() {
     imgTween = gsap.to(
-      "#cover-image",
+      ".cover-image",
       {
         duration: 0.5,
         opacity: "100%"
