@@ -92,4 +92,22 @@ nextTick,
 .bar {
   width: 100vw;
 }
+
+@media (max-width: 767px) {
+  .svg {
+    display: none;
+  }
+
+  .icon {
+    font-size: 128pt;
+  }
+
+  #chip {
+    left: 20%;
+  }
+
+  #wrench {
+    left: 25%;
+  }
+}
 </style>

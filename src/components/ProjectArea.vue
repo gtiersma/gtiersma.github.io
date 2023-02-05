@@ -25,7 +25,7 @@
       </div>
       <div v-for="(project, i) in projects" class="carousel-inner">
         <div class="carousel-item" :class="i == 0 ? 'active' : ''">
-          <img id="cover-image" :src="project.coverImgPath"/>
+          <img class="cover-image" :src="project.coverImgPath"/>
           <img class="back" :src="project.imgPath" :alt="project.title"/>
           <div class="carousel-caption d-none d-md-block">
             <h3 class="cover-text">{{ project.title }}</h3>
@@ -112,7 +112,6 @@
   img {
     display: block;
     width: 100%;
-    filter: "contrast(99%)"
   }
 
   a {
@@ -132,7 +131,7 @@
     padding: 20px 0 100px 0;
   }
 
-  #cover-image {
+  .cover-image {
     position: absolute;
     opacity: 0;
   }
@@ -153,5 +152,27 @@
     position: absolute;
     width: 100%; /* needed to position title directly over other title for some reason */
     opacity: 0;
+  }
+
+  @media (max-width: 992px) {
+    .carousel-caption {
+      position: relative;
+      display: block !important;
+      left: 0;
+      right: 0;
+    }
+
+    h3.text, p.text {
+      opacity: 100%;
+      color: #262425;
+    }
+
+    .cover-text {
+      display: none;
+    }
+
+    .cover-image {
+      display: none;
+    }
   }
 </style>

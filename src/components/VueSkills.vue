@@ -65,4 +65,10 @@ p {
   padding: 5px;
   margin: 0 auto;
 }
+
+@media (max-width: 992px) {
+  .body {
+    padding: 0 50px 100px;
+  }
+}
 </style>

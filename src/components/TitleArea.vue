@@ -96,4 +96,10 @@ button {
   justify-content: space-around;
   text-align: center;
 }
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 26pt;
+  }
+}
 </style>

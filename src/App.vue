@@ -111,4 +111,10 @@ onMounted(() => widthWatcher.start())
   .container {
     padding: 0
   }
+
+  @media (max-width: 992px) {
+    .nav {
+      display: none;
+    }
+  }
 </style>

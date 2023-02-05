@@ -100,6 +100,7 @@ onMounted(() => {
 
   .collapse-body {
     overflow: hidden;
+    margin: 0;
   }
 
   .question {
@@ -114,5 +115,15 @@ onMounted(() => {
   .hide-character {
     position: relative;
     left: 10px;
+  }
+
+  @media (max-width: 992px) {
+    h4 {
+      font-size: 13pt;
+    }
+
+    .faq {
+      margin: 20px 50px;
+    }
   }
 </style>
