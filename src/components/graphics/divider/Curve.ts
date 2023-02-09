@@ -1,4 +1,4 @@
-import type { SizeWatcher } from "@/SizeWatcher"
+import type { SizeWatcher } from "@/common/SizeWatcher"
 import { computed, type ComputedRef } from "vue"
 
 export class Curve {

@@ -23,15 +23,14 @@
 </template>
   
 <script setup lang="ts">
+  import { SizeWatcher } from '@/common/SizeWatcher';
   import {
-nextTick,
     onMounted,
     reactive,
     ref,
     watch,
     type Ref
   } from 'vue';
-  import { SizeWatcher } from '@/SizeWatcher';
   import { CodeLines } from './CodeLine';
 
   const props = defineProps({

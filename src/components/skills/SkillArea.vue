@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { SizeWatcher } from '@/SizeWatcher';
+import { SizeWatcher } from '@/common/SizeWatcher';
 import {
   Skill,
   Languages,

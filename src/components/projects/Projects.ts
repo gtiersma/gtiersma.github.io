@@ -6,8 +6,8 @@ export class Project {
     readonly action: string = ""
   ) {}
 
-  get imgPath(): string { return `public/${ this.img }` }
-  get coverImgPath(): string { return `public/cover-${ this.img }` }
+  get imgPath(): string { return `projects/${ this.img }` }
+  get coverImgPath(): string { return `projects/cover-${ this.img }` }
 
   get id(): string {
     return this.title.replace(" ", "")

@@ -25,7 +25,7 @@
   })
 
   function getPath(imageName: string) {
-    return `public/skill_icons/${ imageName }.png`
+    return `skills/${ imageName }.png`
   }
 </script>
   

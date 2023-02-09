@@ -213,9 +213,8 @@
 </template>
   
 <script setup lang="ts">
+  import { SizeWatcher } from '@/common/SizeWatcher';
   import VueFaq from './VueFaq.vue'
-  import DividedSection from './DividedSection.vue';
-  import { SizeWatcher } from '@/SizeWatcher';
 
   const props = defineProps({
     pageWidth: SizeWatcher

@@ -39,13 +39,13 @@
 
 <script setup lang="ts">
 import TitleArea from './components/TitleArea.vue'
-import FaqArea from './components/FaqArea.vue'
-import ProjectArea from './components/ProjectArea.vue'
-import SkillArea from './components/SkillArea.vue'
+import FaqArea from './components/faqs/FaqArea.vue'
+import ProjectArea from './components/projects/ProjectArea.vue'
+import SkillArea from './components/skills/SkillArea.vue'
 import ContactArea from './components/ContactArea.vue'
-import { type Ref, ref, onMounted, defineExpose } from 'vue'
-import { SizeWatcher } from './SizeWatcher'
+import { type Ref, ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { SizeWatcher } from './common/SizeWatcher'
 
 const container: Ref<HTMLElement | null> = ref(null)
 

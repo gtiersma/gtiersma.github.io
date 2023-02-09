@@ -22,7 +22,7 @@
 import { onMounted, ref, type Ref } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { SizeWatcher } from '@/SizeWatcher';
+import { SizeWatcher } from '@/common/SizeWatcher';
 
 gsap.registerPlugin(ScrollTrigger)
 

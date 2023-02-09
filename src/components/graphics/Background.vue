@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { SizeWatcher } from '@/SizeWatcher';
+import { SizeWatcher } from '@/common/SizeWatcher';
 import gsap from 'gsap';
 import { computed, onMounted, ref, type ComputedRef, type Ref, watch, nextTick } from 'vue';
 

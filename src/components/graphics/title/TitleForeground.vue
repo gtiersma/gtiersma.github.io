@@ -40,8 +40,8 @@
     type Ref
   } from 'vue';
   import { gsap } from 'gsap'
-  import { SizeWatcher } from '@/SizeWatcher';
   import { BarGradient, TitleBar } from './TitleBar';
+  import { SizeWatcher } from '@/common/SizeWatcher';
 
   const props = defineProps({
     heightWatcher: SizeWatcher
