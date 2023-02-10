@@ -82,7 +82,7 @@ function startAnimation() {
       `#${ it.id }`,
       {
         y: `-=${ lineGroupHeight.value }`,
-        duration: 20,
+        duration: 100,
         repeat: -1,
         ease: "none",
         onRepeatParams: [it],

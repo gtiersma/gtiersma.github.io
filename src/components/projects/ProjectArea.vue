@@ -8,7 +8,7 @@
 
     <div
       id="projects"
-      class="bdr-main carousel slide"
+      class="bdr-main carousel"
       @mouseenter="showInfo()"
       @mouseleave="hideInfo()"
     >
@@ -34,7 +34,7 @@
               <p class="cover-text">{{ paragraph }}</p>
               <p class="text">{{ paragraph }}</p>
             </div>
-            <a class="btn thm-button" :href="project.imgPath">View Project</a>
+            <a class="btn thm-button" v-show="!!project.link" :href="project.link">View Project</a>
           </div>
         </div>
       </div>
@@ -59,9 +59,8 @@
     </div>
 
     <p>
-      And that's not all. There are other projects that I have worked on that are omitted because
-      they are not "professional". Contact me if you are interested in hearing about more of my
-      projects.
+      There are even more projects that I have worked on. They have been omitted because they are rather "informal" for a
+      professional portfolio. Feel free to contact me if interested in hearing about some of those projects.
     </p>
   </div>
 </template>
@@ -111,7 +110,7 @@
 <style scoped>
   img {
     display: block;
-    width: 100%;
+    height: 500px;
   }
 
   a {

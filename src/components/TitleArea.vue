@@ -12,7 +12,7 @@
     <h1 class="title fnt-text-dark">George Tiersma</h1>
     <h1 id="bottom-title" class="title fnt-text-dark">Junior Fullstack Software Engineer</h1>
 
-    <button class="btn thm-button far-front">View Resume</button>
+    <a class="btn thm-button far-front" href="portfolio/resume.pdf">View Resume</a>
 
     <!--<title-foreground :height-watcher="heightWatcher"/>-->
   </div>
@@ -69,7 +69,7 @@ a {
   cursor: pointer;
 }
 
-button {
+.btn {
   width: 200px;
   margin: 0 auto;
 }

@@ -5,9 +5,9 @@
     <vue-br/>
     
     <p class="fnt-text">
-      As a fast-learner, I believe that the ability to learn new tools and adapt to them is much more
-      important than what one may already know. However, for those interested in what technologies I have
-      already used, I provide that information here.
+      The ability to learn new tools and adapt to using them is much more important than
+      what one may already know. However, for those interested in what technologies I am already
+      familiar with, that information is provided here
     </p>
 
     <p class="fine-print fnt-main-dark">

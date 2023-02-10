@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <vue-br/>
-    
     <h3 class="fnt-text-dark">{{ title }}</h3>
 
     <div class="body">
@@ -13,6 +11,8 @@
         </div>
       </div>
     </div>
+
+    <vue-br/>
   </div>
 </template>
   
