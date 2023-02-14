@@ -4,50 +4,40 @@
 
     <ul>
       <li>
-        <fa-icon
-          class="fnt-back icon"
-          icon="fa-envelope"
-          href="mailto:gtiersma@somethingmail.com"
-        />
-        <label href="mailto:gtiersma@somethingmail.com">Email</label>
+        <a href="mailto:gtiersma@proton.me">
+          <fa-icon class="icon" icon="fa-envelope"/>
+          gtiersma@proton.me
+        </a>
       </li>
 
       <li>
-        <fa-icon
-          class="fnt-back icon"
-          icon="fa-phone"
-          href="tel:+5039912686"
-        />
-        <label href="tel:+5039912686">Call</label>
+        <a href="tel:+5039912686">
+          <fa-icon class="icon" icon="fa-phone"/>
+          (503) 991-2686
+        </a>
       </li>
 
       <li>
-        <fa-icon
-          class="fnt-back icon"
-          icon="fa-brands fa-linkedin-in"
-          href="linkedin.com"
-        />
-        <label href="linkedin.com">LinkedIn</label>
+        <a href="https://www.linkedin.com/in/gtiersma/">
+          <fa-icon class="icon" icon="fa-brands fa-linkedin-in"/>
+          LinkedIn
+        </a>
       </li>
 
       <li>
-        <fa-icon
-          class="fnt-back icon"
-          icon="fa-brands fa-github"
-          href="https://github.com/gtiersma"
-        />
-        <label href="https://github.com/gtiersma">Git Hub</label>
+        <a href="https://github.com/gtiersma">
+          <fa-icon class="icon" icon="fa-brands fa-github"/>
+          GitHub
+        </a>
       </li>
     </ul>
   </div>
 </template>
   
 <script setup lang="ts">
-
 /**
  * The footer area of the website that displays contact info & links
  */
-
 </script>
   
 <style scoped>
@@ -60,16 +50,19 @@
     list-style-type: none;
   }
 
-  label {
-    padding-left: 10px;
+  .icon {
+    padding-right: 10px;
+    font-size: 12pt;
+    vertical-align: middle;
   }
 
-  label, .icon {
+  a {
     cursor: pointer;
+    font-size: 10pt;
   }
 
   #contact-area {
-    margin-top: -80px;
+    margin-top: -80px; /* Needed to have the divider above slightly overlap it */
     padding: 70px 0 20px 0;
   }
 </style>
