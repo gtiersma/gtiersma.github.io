@@ -186,7 +186,7 @@ export const CodeLines: CodeLine[] = [
   new CodeLine([
     `private longestLength: number; private charsLeft: number[]; private currentIndex: number;           `,
     `class="font" v-for="(line, i) in codeLines" x="20"                                                  `,
-    `<a class="navbar-brand" href="#">George Tiersma - Junior Fullstack Software Engineer</a></div></div>`
+    `<a class="navbar-brand" href="#">George Tiersma - Fullstack Software Engineer</a></div></div>`
   ]),
   new CodeLine([
     `private isChangingChar: boolean; private intervalId: number; text: string;   `,
@@ -196,7 +196,7 @@ export const CodeLines: CodeLine[] = [
   new CodeLine([
     `isReadyForNextLine: boolean; constructor(private readonly lines: string[]) { this.longestLength = lines.reduce((a, b) =>                       `,
     `</svg><fa-icon class="icon back" id="chip" icon="fa-solid fa-microchip"/><fa-icon class="icon back" id="wrench" icon="fa-solid fa-wrench"/>    `,
-    `<h1 id="bottom-title" class="title">Junior Fullstack Software Engineer</h1><button class="btn btn-primary far-front">View Resume</button></div>`
+    `<h1 id="bottom-title" class="title">Fullstack Software Engineer</h1><button class="btn btn-primary far-front">View Resume</button></div>`
   ]),
   new CodeLine([
     `a.length > b.length ? a : b ).length; this.charsLeft = [];         `,
