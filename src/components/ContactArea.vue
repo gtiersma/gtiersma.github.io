@@ -31,6 +31,22 @@
         </a>
       </li>
     </ul>
+
+    <div class="legal">
+      <p>
+        The font <b>Exo</b> was provided free of charge by Natanael Gama and Robin Mientjes
+        (protected under the Open Font Licsense).
+        The font <b>Roboto</b> was provided free of charge by Christian Robertson (protected under the Apache License v2.0).
+      </p>
+      <p>
+        Icons in the title and footer were provided free of charge by © Fonticons, Inc (protected under the CC BY4.0 licsense).
+      </p>
+      <p>
+        Majority of the images used in this website are copywrited and/or contain copywrited logos.
+        These were used without permission and are property of their respective owners.
+        They may be removed by request from the copywrite holder.
+      </p>
+    </div>
   </div>
 </template>
   
@@ -48,6 +64,19 @@
 
   ul {
     list-style-type: none;
+    width: fit-content;
+    display: inline-block;
+  }
+
+  a {
+    cursor: pointer;
+    font-size: 10pt;
+  }
+
+  p {
+    font-size: 6pt;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .icon {
@@ -56,9 +85,9 @@
     vertical-align: middle;
   }
 
-  a {
-    cursor: pointer;
-    font-size: 10pt;
+  .legal {
+    width: 75%;
+    display: inline-block;
   }
 
   #contact-area {
