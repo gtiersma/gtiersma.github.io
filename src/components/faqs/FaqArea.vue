@@ -14,7 +14,7 @@
         </p>
         <p>
           Being a fullstack engineer, I work with the user interface, the database and
-          everything inbetween on a regular basis.
+          everything in between on a regular basis.
         </p>
         <p>
           Most of the work I have done involves the creation of backend tools. Many of the tools I have developed

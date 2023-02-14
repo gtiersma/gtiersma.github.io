@@ -6,12 +6,15 @@
     
     <p>A few of the more notable projects that I have worked on</p>
 
+    <!-- PROJECT CAROUSEL -->
     <div
       id="projects"
       class="bdr-main carousel"
       @mouseenter="showInfo()"
       @mouseleave="hideInfo()"
     >
+
+      <!-- BOTTOM CAROUSEL BARS -->
       <div class="carousel-indicators">
         <button
           v-for="i in projects.length"
@@ -23,10 +26,15 @@
           :aria-label="`Slide ${ i }`"
         />
       </div>
+
       <div v-for="(project, i) in projects" class="carousel-inner">
         <div class="carousel-item" :class="i == 0 ? 'active' : ''">
+
+          <!-- PROJECT IMAGES -->
           <img class="cover-image" :src="project.coverImgPath"/>
           <img class="back" :src="project.imgPath" :alt="project.title"/>
+
+          <!-- PROJECT TEXT -->
           <div class="carousel-caption d-none d-md-block">
             <h3 class="cover-text">{{ project.title }}</h3>
             <h3 class="text">{{ project.title }}</h3>
@@ -36,8 +44,11 @@
             </div>
             <a class="btn thm-button" v-show="!!project.link" :href="project.link">View Project</a>
           </div>
+
         </div>
       </div>
+
+      <!-- ARROW BUTTONS -->
       <button
         class="carousel-control-prev"
         type="button"
@@ -56,6 +67,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"/>
         <span class="visually-hidden">Next</span>
       </button>
+
     </div>
 
     <p>
@@ -74,6 +86,11 @@
   let imgTween: GSAPTween | null = null
   let textTween: GSAPTween | null = null
 
+  /**
+   * Initializes the tween objects
+   * 
+   * This also triggers the animations, so it should only be called the first time the animations are to be performed.
+   */
   function buildTweens() {
     imgTween = gsap.to(
       ".cover-image",
@@ -87,6 +104,7 @@
       {
         duration: 0.5,
         opacity: "100%",
+        // Multiple text shadows to make the shadows darker:
         textShadow: "0 0 10px #000, 0 0 10px #000, 0 0 10px #000, 0 0 10px #000, 0 0 10px #000"
       }
     )
@@ -166,6 +184,7 @@
       color: #262425;
     }
 
+    /** No hovering on mobile - Just remove the effect */
     .cover-text {
       display: none;
     }

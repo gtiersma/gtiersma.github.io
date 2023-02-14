@@ -1,4 +1,6 @@
 <template>
+
+  <!-- SIDE BAR NAV -->
   <ul
     class="nav flex-column nav-menu far-front"
     @mouseenter="navIn()"
@@ -19,8 +21,10 @@
   </ul>
 
   <background/>
+
   <title-area/>
 
+  <!-- WEBSITE BODY -->
   <div class="container thm-background-dark" ref="container">
     <div ref="faqArea">
       <faq-area :page-width="widthWatcher"/>
@@ -35,6 +39,7 @@
       <contact-area/>
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -47,6 +52,10 @@ import { type Ref, ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { SizeWatcher } from './common/SizeWatcher'
 
+/**
+ * The top parent component
+ */
+
 const container: Ref<HTMLElement | null> = ref(null)
 
 const faqArea: Ref<HTMLElement | null> = ref(null)
@@ -54,10 +63,18 @@ const projectArea: Ref<HTMLElement | null> = ref(null)
 const skillArea: Ref<HTMLElement | null> = ref(null)
 const contactArea: Ref<HTMLElement | null> = ref(null)
 
+// Watches the width of the container of all the "areas"
 const widthWatcher: SizeWatcher = new SizeWatcher(container, true, false)
 
+// Optimization to majorly increase animation performance (30fps instead of 60fps)
+//
+// Performance was fine at 60fps,
+// but it used more resources on somewhat-old hardware than it should need to.
 gsap.ticker.fps(30)
 
+/**
+ * Side bar nav cursor animations
+ */
 function navIn() {
   gsap.to(
     ".nav",
@@ -74,7 +91,6 @@ function navIn() {
     }
   )
 }
-
 function navOut() {
   gsap.to(
     ".nav",
@@ -118,6 +134,7 @@ onMounted(() => widthWatcher.start())
 
   @media (max-width: 992px) {
     .nav {
+      /* Website is small enough that nav shouldn't be needed on mobile */
       display: none;
     }
   }

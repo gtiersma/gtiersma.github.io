@@ -1,4 +1,11 @@
 export class Project {
+
+  /**
+   * @param title Header text
+   * @param img Image used in carousel
+   * @param description Paragraphs
+   * @param link URL for button (No button is displayed if empty value)
+   */
   constructor(
     readonly title: string,
     readonly img: string,
@@ -7,11 +14,10 @@ export class Project {
   ) {}
 
   get imgPath(): string { return `projects/${ this.img }` }
-  get coverImgPath(): string { return `projects/cover-${ this.img }` }
 
-  get id(): string {
-    return this.title.replace(" ", "")
-  }
+  // A blurred version of the image that is used for placing the text over
+  // The file must have the same name as the img (except it begins with "cover-").
+  get coverImgPath(): string { return `projects/cover-${ this.img }` }
 }
 
 export const Projects: Project[] = [

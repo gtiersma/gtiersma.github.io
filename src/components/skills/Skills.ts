@@ -1,4 +1,9 @@
 export class Skill {
+  /**
+   * @param title Name of the technology
+   * @param img Image file name in the skills directory (no extension) - PNG format
+   * @param isPoor If true, an asterisk is added to the title to indicate beginner experience
+   */
   constructor(
     readonly title: string,
     readonly img: string,

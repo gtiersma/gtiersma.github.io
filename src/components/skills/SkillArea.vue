@@ -7,7 +7,7 @@
     <p class="fnt-text">
       The ability to learn new tools and adapt to using them is much more important than
       what one may already know. However, for those interested in what technologies I am already
-      familiar with, that information is provided here
+      familiar with, that information is provided here:
     </p>
 
     <p class="fine-print fnt-main-dark">

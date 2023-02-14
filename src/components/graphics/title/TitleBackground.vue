@@ -1,15 +1,18 @@
 <template>
-  <svg class="svg far-back" ref="titleBackground">
+
+  <!-- CHANGING LINES OF CODE -->
+  <svg class="svg far-back">
     <text
       class="font thm-background-dark"
       v-for="(line, i) in codeLines"
       x="70"
-      :y="getLineStartY(i)"
+      :y="getLineY(i)"
     >
       {{ line.text }}
     </text>
   </svg>
 
+  <!-- GIANT BACKGROUND ICONS -->
   <fa-icon
     class="icon fnt-background-dark back"
     id="chip"
@@ -20,36 +23,48 @@
     id="wrench"
     icon="fa-solid fa-wrench"
   />
+
 </template>
   
 <script setup lang="ts">
   import { SizeWatcher } from '@/common/SizeWatcher';
-  import {
-    onMounted,
-    reactive,
-    ref,
-    watch,
-    type Ref
-  } from 'vue';
+  import { onMounted, reactive, watch } from 'vue';
   import { CodeLines } from './CodeLine';
 
+  /**
+   * The animated background that exists behind the webpage's title
+   * 
+   * Takes a SizeWatcher that is watching the title area's height
+   * to use to responsively space the lines of code across the title area.
+   */
   const props = defineProps({
     heightWatcher: SizeWatcher
   })
 
   const codeLines = reactive(CodeLines)
 
-  const titleBackground: Ref<HTMLElement | null> = ref(null)
-
-  function getLineStartY(lineIndex: number): number {
+  /**
+   * Get the y position that a certain line of code should be positioned at
+   * 
+   * The formula tries to keep the lines of code in view and evenly spaced out
+   * 
+   * @param lineIndex The index of the line of code in the codelines array
+   */
+  function getLineY(lineIndex: number): number {
     const containerHeight = props.heightWatcher?.height.value ?? 0 
-    return (lineIndex + 1) * (containerHeight / codeLines.length)
+    return (lineIndex + 0.5) * (containerHeight / codeLines.length)
   }
 
+  /**
+   * Begin transforming all of the lines of code to their next line
+   */
   function startAnimation() {
     codeLines.forEach(it => it.changeLine())
   }
 
+  /**
+   * Once all lines have finished transforming to the next line of code, start animating them all to the next line of code.
+   */
   watch(codeLines, newLines => {
     if (newLines.every(it => it.isReadyForNextLine)) {
       startAnimation()
@@ -84,7 +99,7 @@
 
 .svg {
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   position: absolute;
 }
 

@@ -43,6 +43,11 @@
 </template>
   
 <script setup lang="ts">
+
+/**
+ * The footer area of the website that displays contact info & links
+ */
+
 </script>
   
 <style scoped>

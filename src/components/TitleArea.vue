@@ -77,7 +77,7 @@ a {
 .back-background {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 90vh;
 }
 
 .title {
@@ -94,7 +94,7 @@ a {
 }
 
 #title-area {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

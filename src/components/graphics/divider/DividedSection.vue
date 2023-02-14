@@ -1,6 +1,9 @@
 <template>
   <div class="divided-section far-front">
+
+    <!-- TOP DIVIDER -->
     <div class="divider top-divider">
+      <!-- GRAPHIC LEFT OF CURVE -->
       <svg
         :width="topCurve?.xStartCss"
         :height="topCurve?.heightCss"
@@ -23,6 +26,7 @@
         />
       </svg>
 
+      <!-- CURVE -->
       <svg
         :width="topCurve?.widthCss"
         :height="topCurve?.heightCss"
@@ -39,6 +43,7 @@
         />
       </svg>
 
+      <!-- GRAPHIC RIGHT OF CURVE -->
       <svg
         :width="topCurve?.rightEdgeDistanceCss?.value"
         :height="topCurve?.height"
@@ -53,13 +58,18 @@
           height="5px"
         />
       </svg>
+
     </div>
 
+    <!-- CONTENT TO BE DISPLAYED BETWEEN DIVIDERS -->
     <div class="thm-background content">
       <slot/>
     </div>
 
+    <!-- BOTTOM DIVIDER -->
     <div class="divider bottom-divider">
+
+      <!-- GRAPHIC LEFT OF CURVE -->
       <svg
         :width="bottomCurve?.xStartCss"
         :height="bottomCurve?.heightCss"
@@ -82,6 +92,7 @@
         />
       </svg>
 
+      <!-- CURVE -->
       <svg
         :width="bottomCurve?.widthCss"
         :height="bottomCurve?.heightCss"
@@ -100,6 +111,7 @@
         />
       </svg>
 
+      <!-- GRAPHIC LEFT OF CURVE -->
       <svg
         :width="bottomCurve?.rightEdgeDistanceCss?.value"
         :height="bottomCurve?.heightCss"
@@ -114,7 +126,9 @@
           height="5px"
         />
       </svg>
+
     </div>
+
   </div>
 </template>
 
@@ -122,6 +136,12 @@
 import { SizeWatcher } from '@/common/SizeWatcher';
 import { Curve } from './Curve';
 
+/**
+ * Displays the content provided in the slot with a top and bottom divider to graphically separate it from neighboring components
+ * 
+ * As a prop, it must have an actively, updating SizeWatcher object of its container's width
+ * (so that the dividers width can resize responsively).
+ */
 const props = defineProps({
   pageWidth: SizeWatcher
 })
@@ -143,7 +163,7 @@ let bottomCurve: Curve | null = new Curve(
 <style scoped>
 .divider {
   position: relative;
-  top: -50px;
+  top: -50px; /** Have the curve overlap the content above the divider */
   width: 100%;
 }
 

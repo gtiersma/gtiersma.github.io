@@ -1,3 +1,5 @@
+/* PRIMARY COLOR */
+
 .bdr-main {
   border-color: #cb6709;
 }
@@ -11,6 +13,9 @@
   color: #cb6709;
 }
 
+
+/* PRIMARY COLOR - DARK VARIANT */
+
 .thm-main-dark {
   background-color: #a73b0c;
   fill: #a73b0c;
@@ -19,6 +24,9 @@
 .fnt-main-dark {
   color: #a73b0c;
 }
+
+
+/* PRIMARY COLOR - LIGHT VARIANT */
 
 .thm-main-light {
   background-color: #d5792c;
@@ -29,6 +37,9 @@
   color: #d5792c;
 }
 
+
+/* BACKGROUND COLOR - PRIMARY */
+
 .thm-background {
   background-color: #f1f1f1;
   fill: #f1f1f1;
@@ -37,6 +48,9 @@
 .fnt-background {
   color: #f1f1f1;
 }
+
+
+/* BACKGROUND COLOR - DARK VARIANT */
 
 .thm-background-dark {
   background-color: #ccccca;
@@ -47,6 +61,9 @@
   color: #ccccca;
 }
 
+
+/* TEXT COLOR - PRIMARY */
+
 .thm-text {
   background-color: #3c3a3b;
   fill: #3c3a3b;
@@ -55,6 +72,9 @@
 .fnt-text {
   color: #3c3a3b;
 }
+
+
+/* TEXT COLOR - DARK VARIANT */
 
 .thm-text-dark {
   background-color: #262425;
@@ -65,6 +85,9 @@
   color: #262425;
 }
 
+
+/* TEXT COLOR - LIGHT VARIANT */
+
 .thm-text-light {
   background-color: #636162;
   fill: #636162;
@@ -73,6 +96,9 @@
 .fnt-text-light {
   color: #636162;
 }
+
+
+/* BUTTON COLORS (variety of the above) */
 
 .thm-button {
   background-color: #a73b0c;

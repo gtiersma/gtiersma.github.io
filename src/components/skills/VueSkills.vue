@@ -19,6 +19,10 @@
 <script setup lang="ts">
   import type { Skill } from './Skills'
 
+  /**
+   * A group of cards, each displaying a skill
+   */
+
   const props = defineProps({
     title: String,
     skills: Array<Skill>

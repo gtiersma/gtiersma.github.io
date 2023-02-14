@@ -1,6 +1,8 @@
 @import './base.css';
 @import './theme.css';
 
+/* GLOBAL STYLES */
+
 body {
   overflow-x: hidden;
   font-family: "RobotoMd";
@@ -41,6 +43,8 @@ a:hover {
     padding: 5px 50px;
   }
 }
+
+/* Z-INDEX STYLES */
 
 .far-far-back {
   z-index: -10;
