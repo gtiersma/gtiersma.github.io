@@ -6,69 +6,52 @@
     
     <p>A few of the more notable projects that I have worked on</p>
 
-    <!-- PROJECT CAROUSEL -->
-    <div
-      id="projects"
-      class="bdr-main carousel"
-      @mouseenter="showInfo()"
-      @mouseleave="hideInfo()"
-    >
+    <p class="swipe-message fnt-main-dark">SWIPE BELOW TO VIEW DIFFERENT PROJECTS</p>
 
-      <!-- BOTTOM CAROUSEL BARS -->
-      <div class="carousel-indicators">
-        <button
-          v-for="i in projects.length"
-          type="button"
-          data-bs-target="#projects"
-          :data-bs-slide-to="i - 1"
-          :class="i == 1 ? 'active' : ''"
-          :aria-current="i == 1 ? true : false"
-          :aria-label="`Slide ${ i }`"
-        />
-      </div>
+    <!-- PROJECT SWIPER -->
+    <div class="bdr-main" id="projects">
+      <div class="swiper" @mouseenter="showInfo()" @mouseleave="hideInfo()">
 
-      <div v-for="(project, i) in projects" class="carousel-inner">
-        <div class="carousel-item" :class="i == 0 ? 'active' : ''">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide fnt-background" v-for="project in projects">
 
-          <!-- PROJECT IMAGES -->
-          <img class="cover-image" :src="project.coverImgPath"/>
-          <img class="back" :src="project.imgPath" :alt="project.title"/>
+            <!-- IMAGE (mobile only) -->
+            <img class="mobile-image" :src="project.imgPath"/>
 
-          <!-- PROJECT TEXT -->
-          <div class="carousel-caption d-none d-md-block">
-            <h3 class="cover-text">{{ project.title }}</h3>
-            <h3 class="text">{{ project.title }}</h3>
-            <div v-for="paragraph in project.description">
-              <p class="cover-text">{{ paragraph }}</p>
-              <p class="text">{{ paragraph }}</p>
+            <!-- TEXT -->
+            <div class="text-container front">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="text front" v-for="paragraph in project.description">{{ paragraph }}</p>
+              <a
+                class="btn thm-button"
+                v-show="!!project.link"
+                :href="project.link"
+              >View Project</a>
             </div>
-            <a class="btn thm-button" v-show="!!project.link" :href="project.link">View Project</a>
+
+            <!-- IMAGES (desktop only - cover image is for the hover effect) -->
+            <img class="cover-image" :src="project.coverImgPath"/>
+            <img class="back" :src="project.imgPath"/>
+
           </div>
-
         </div>
+
+        <!-- NAV ARROWS -->
+        <div
+          class="swiper-button-next fnt-background"
+          @mouseenter="runShadeTween(NEXT_CLASS)"
+          @mouseleave="reverseShadeTween(NEXT_CLASS, HIDDEN_OPACITY)"
+        />
+        <div
+          class="swiper-button-prev fnt-background"
+          @mouseenter="runShadeTween(PREV_CLASS)"
+          @mouseleave="reverseShadeTween(PREV_CLASS, HIDDEN_OPACITY)"
+        />
+
       </div>
-
-      <!-- ARROW BUTTONS -->
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#projects"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"/>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#projects"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"/>
-        <span class="visually-hidden">Next</span>
-      </button>
-
     </div>
+
+    <vue-br/>
 
     <p>
       There are even more projects that I have worked on. They have been omitted because they are rather "informal" for a
@@ -79,28 +62,51 @@
   
 <script setup lang="ts">
   import gsap from 'gsap';
+  import Swiper, { Navigation, Pagination } from 'swiper';
+  import { onMounted } from 'vue';
   import { Project, Projects } from './Projects';
+
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  Swiper.use([Navigation, Pagination]);
+
+  // Opacities for hover effects:
+  const HIDDEN_OPACITY: string = "50%"
+  const TEXT_HIDDEN_OPACITY: string = "20%"
+
+  // Classes for easy access
+  const IMG_CLASS: string = ".cover-image"
+  const TITLE_CLASS: string = ".project-title"
+  const TEXT_CLASS: string = ".text"
+  const NEXT_CLASS: string = ".swiper-button-next"
+  const PREV_CLASS: string = ".swiper-button-prev"
 
   const projects: Project[] = Projects
 
-  let imgTween: GSAPTween | null = null
-  let textTween: GSAPTween | null = null
+  let swiper: Swiper | null = null
 
   /**
-   * Initializes the tween objects
-   * 
-   * This also triggers the animations, so it should only be called the first time the animations are to be performed.
+   * The blurred image animation
    */
-  function buildTweens() {
-    imgTween = gsap.to(
-      ".cover-image",
+  function runImgTween() {
+    gsap.to(
+      IMG_CLASS,
       {
         duration: 0.5,
         opacity: "100%"
       }
     )
-    textTween = gsap.to(
-      ".cover-text", 
+  }
+  /**
+   * Text opacity/shading animation for hovering
+   * 
+   * @param cssClass The class to apply it to (must include period)
+   */
+  function runShadeTween(cssClass: string) {
+    gsap.to(
+      cssClass,
       {
         duration: 0.5,
         opacity: "100%",
@@ -110,35 +116,82 @@
     )
   }
 
-  function showInfo() {
-    if (!imgTween || !textTween) {
-      buildTweens()
-    } else {
-      imgTween.play()
-      textTween.play()
-    }
+  /**
+   * Tween animation reversal functions:
+   */
+  function reverseImgTween() {
+    gsap.to(
+      IMG_CLASS,
+      {
+        duration: 0.5,
+        opacity: 0
+      }
+    )
+  }
+  function reverseShadeTween(cssClass: string, opacity: string) {
+    gsap.to(
+      cssClass,
+      {
+        duration: 0.5,
+        opacity: opacity,
+        textShadow: "none"
+      }
+    )
   }
 
-  function hideInfo() {
-    imgTween?.reverse()
-    textTween?.reverse()
+  /**
+   * Making the text more/less visible for hovering
+   */
+  function showInfo() {
+    runImgTween()
+    runShadeTween(TITLE_CLASS)
+    runShadeTween(TEXT_CLASS)
   }
+  function hideInfo() {
+    reverseImgTween()
+    reverseShadeTween(TITLE_CLASS, HIDDEN_OPACITY)
+    reverseShadeTween(TEXT_CLASS, TEXT_HIDDEN_OPACITY)
+  }
+
+  onMounted(() =>
+    swiper = new Swiper(".swiper", {
+      loop: true,
+      cssMode: true,
+      simulateTouch: false,
+      navigation: {
+        nextEl: NEXT_CLASS,
+        prevEl: PREV_CLASS,
+      },
+      breakpoints: {
+        992: {
+          navigation: {}
+        }
+      }
+    })
+  )
 </script>
   
 <style scoped>
   img {
-    display: block;
-    height: 500px;
+    width: inherit;
+    height: 60vh;
+    object-fit: cover;
   }
 
   a {
+    display: block;
     padding: 5px 30px;
+    width: 175px;
+    margin: 10px auto;
+  }
+
+  h3, .text {
+    text-align: center;
   }
 
   #projects {
-    max-width: 70%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px 100px;
+    padding: 10px;
     border-style: solid;
     border-width: 3px;
     border-radius: 10px;
@@ -153,43 +206,64 @@
     opacity: 0;
   }
 
-  h3.text {
+  .mobile-image {
+    display: none;
+  }
+
+  .swiper-button-next, .swiper-button-prev, h3 {
     opacity: 50%;
   }
 
-  p.text {
+  .swipe-message {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .text {
     opacity: 20%;
+    padding: 5px 100px;
   }
 
-  .text, .cover-text {
-    padding: 5px 0;
-  }
-
-  .cover-text {
+  .text-container {
     position: absolute;
-    width: 100%; /* needed to position title directly over other title for some reason */
-    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: 992px) {
-    .carousel-caption {
-      position: relative;
-      display: block !important;
-      left: 0;
-      right: 0;
-    }
-
-    h3.text, p.text {
-      opacity: 100%;
-      color: #262425;
-    }
-
-    /** No hovering on mobile - Just remove the effect */
-    .cover-text {
+    img {
       display: none;
     }
 
-    .cover-image {
+    h3, .text {
+      color: #262425;
+      opacity: 100%;
+      padding: 5px 10px;
+    }
+
+    #projects {
+      margin: 20px 0;
+      padding: 10px 0;
+      border: none;
+    }
+
+    .mobile-image {
+      display: block;
+    }
+
+    .swipe-message {
+      display: block;
+    }
+
+    .text-container {
+      position: static;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
       display: none;
     }
   }

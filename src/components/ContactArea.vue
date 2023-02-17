@@ -74,7 +74,7 @@
   }
 
   p {
-    font-size: 6pt;
+    font-size: 7pt;
     padding-top: 0;
     padding-bottom: 0;
   }

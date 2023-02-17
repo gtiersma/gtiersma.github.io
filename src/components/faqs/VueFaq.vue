@@ -167,7 +167,7 @@ onMounted(() => {
   }
 
   .question {
-    display: inline;
+    display: inline-block;
   }
 
   .character {
@@ -187,6 +187,10 @@ onMounted(() => {
 
     .faq {
       margin: 20px 50px;
+    }
+
+    .question {
+      width: 95%; /* Keep show/hide character from being pushed to the next line */
     }
   }
 </style>

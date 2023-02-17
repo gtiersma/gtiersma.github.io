@@ -16,9 +16,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // INDIVIDUAL FA ICONS
 import { faPhone, faEnvelope, faMicrochip, faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-
-// INCLUDE THE FA ICONS
 library.add(faPhone, faEnvelope, faMicrochip, faWrench, faGithub, faLinkedinIn)
+
+// SWIPER
+import { register } from 'swiper/element/bundle'
+register();
 
 // CUSTOM GLOBAL COMPONENTS
 import VueFaq from './components/faqs/VueFaq.vue'

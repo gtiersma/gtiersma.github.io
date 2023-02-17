@@ -20,7 +20,7 @@
     <vue-skills title="IDEs" :skills="ides"/>
     <vue-skills title="Version Control" :skills="versions"/>
     <vue-skills title="Graphics" :skills="graphics"/>
-    <vue-skills title="Operation Systems" :skills="oses"/>
+    <vue-skills title="Operating Systems" :skills="oses"/>
     <vue-skills title="Other Software" :skills="others"/>
   </divided-section>
 </template>

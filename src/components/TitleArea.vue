@@ -12,7 +12,7 @@
     <h1 class="title fnt-text-dark">George Tiersma</h1>
     <h1 id="bottom-title" class="title fnt-text-dark">Fullstack Software Engineer</h1>
 
-    <a class="btn thm-button far-front" href="portfolio/resume.pdf">View Resume</a>
+    <a class="btn thm-button far-front" href="/resume.pdf">View Resume</a>
 
     <!--<title-foreground :height-watcher="heightWatcher"/>-->
   </div>
@@ -104,6 +104,10 @@ a {
 @media (max-width: 992px) {
   h1 {
     font-size: 26pt;
+  }
+
+  #title-bar {
+    display: none;
   }
 }
 </style>

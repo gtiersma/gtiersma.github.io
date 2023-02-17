@@ -71,8 +71,30 @@ p {
 }
 
 @media (max-width: 992px) {
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  h6 {
+    font-size: 8pt;
+  }
+
+  p {
+    font-size: 6pt;
+  }
+
   .body {
     padding: 0 50px 100px;
+  }
+
+  .card {
+    width: 75px;
+    margin: 5px;
+  }
+
+  .card-body {
+    padding: 3px;
   }
 }
 </style>

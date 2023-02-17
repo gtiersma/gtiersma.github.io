@@ -74,7 +74,7 @@
           <li>
             I would think that I prioritize clean and understandable code more than most developers.
             I focus greatly on the following:
-            <ul>
+            <ul class="sub-ul">
               <li>
                 Naming variables & methods in a way that most developers would be able to understand
               </li>
@@ -228,6 +228,10 @@
 
   ul {
     padding: 10px 100px 10px 150px;
+  }
+
+  .sub-ul {
+    padding: 10px;
   }
 
   @media (max-width: 992px) {

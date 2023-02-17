@@ -5,8 +5,8 @@
     <div class="divider top-divider">
       <!-- GRAPHIC LEFT OF CURVE -->
       <svg
-        :width="topCurve?.xStartCss"
-        :height="topCurve?.heightCss"
+        :width="topCurve.xStartCss?.value"
+        :height="topCurve.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -28,8 +28,8 @@
 
       <!-- CURVE -->
       <svg
-        :width="topCurve?.widthCss"
-        :height="topCurve?.heightCss"
+        :width="topCurve.widthCss"
+        :height="topCurve.heightCss"
         viewBox="0 0 26.5 27.1"
         preserveAspectRatio="none"
       >
@@ -45,8 +45,8 @@
 
       <!-- GRAPHIC RIGHT OF CURVE -->
       <svg
-        :width="topCurve?.rightEdgeDistanceCss?.value"
-        :height="topCurve?.height"
+        :width="topCurve.rightEdgeDistanceCss?.value"
+        :height="topCurve.height"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -54,7 +54,7 @@
           class="thm-main-dark"
           x="0"
           y="96px"
-          :width="topCurve?.rightEdgeDistanceCss?.value"
+          :width="topCurve.rightEdgeDistanceCss?.value"
           height="5px"
         />
       </svg>
@@ -71,8 +71,8 @@
 
       <!-- GRAPHIC LEFT OF CURVE -->
       <svg
-        :width="bottomCurve?.xStartCss"
-        :height="bottomCurve?.heightCss"
+        :width="bottomCurve.xStartCss?.value"
+        :height="bottomCurve.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -94,8 +94,8 @@
 
       <!-- CURVE -->
       <svg
-        :width="bottomCurve?.widthCss"
-        :height="bottomCurve?.heightCss"
+        :width="bottomCurve.widthCss"
+        :height="bottomCurve.heightCss"
         viewBox="0 -27.1 26.5 27.1"
         preserveAspectRatio="none"
       >
@@ -113,8 +113,8 @@
 
       <!-- GRAPHIC LEFT OF CURVE -->
       <svg
-        :width="bottomCurve?.rightEdgeDistanceCss?.value"
-        :height="bottomCurve?.heightCss"
+        :width="bottomCurve.rightEdgeDistanceCss?.value"
+        :height="bottomCurve.heightCss"
         viewBox="0 0 1 100"
         preserveAspectRatio="none"
       >
@@ -122,7 +122,7 @@
           class="thm-main-dark"
           x="0"
           y="0"
-          :width="topCurve?.rightEdgeDistanceCss?.value"
+          :width="topCurve.rightEdgeDistanceCss?.value"
           height="5px"
         />
       </svg>
@@ -146,13 +146,13 @@ const props = defineProps({
   pageWidth: SizeWatcher
 })
 
-let topCurve: Curve | null = new Curve(
+const topCurve: Curve = new Curve(
   250,
   100,
   50,
   props.pageWidth
 )
-let bottomCurve: Curve | null = new Curve(
+const bottomCurve: Curve = new Curve(
   350,
   100,
   30,
