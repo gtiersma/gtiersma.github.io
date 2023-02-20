@@ -73,7 +73,6 @@ export class Curve {
 
     this.xStartCss = computed(() => `${ this.startX?.value ?? 0 }px`)
     this.rightEdgeDistanceCss = computed(() => {
-      console.error("recomputed")
       return `${ this.distanceFromRightEdge?.value }px`
     })
   }

@@ -4,8 +4,10 @@
     <!-- HEADER -->
     <div class="collapse-header" @click="click()">
       <h4 class="question">{{ props.question }}</h4>
-      <h3 class="character" :id="showId">+</h3>
-      <h3 class="character hide-character" :id="hideId">-</h3>
+      <div class="character-container">
+        <h3 class="character hide-character" :id="hideId">-</h3>
+        <h3 class="character" :id="showId">+</h3>
+      </div>
     </div>
 
     <!-- SHOW-ABLE CONTENT -->
@@ -17,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, type ComputedRef, type Ref } from 'vue';
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue';
 import { gsap } from 'gsap'
 
 /**
@@ -170,19 +172,21 @@ onMounted(() => {
     display: inline-block;
   }
 
-  .character {
-    font-family: "ExoBd";
+  .character-container {
     float: right;
   }
 
+  .character {
+    font-family: "ExoBd";
+  }
+
   .hide-character {
-    position: relative;
-    left: 10px;
+    position: absolute;
   }
 
   @media (max-width: 992px) {
     h4 {
-      font-size: 13pt;
+      font-size: 12pt;
     }
 
     .faq {
@@ -190,7 +194,7 @@ onMounted(() => {
     }
 
     .question {
-      width: 95%; /* Keep show/hide character from being pushed to the next line */
+      width: 90%; /* Keep show/hide character from being pushed to the next line */
     }
   }
 </style>

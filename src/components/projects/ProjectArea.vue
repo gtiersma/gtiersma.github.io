@@ -6,52 +6,41 @@
     
     <p>A few of the more notable projects that I have worked on</p>
 
-    <p class="swipe-message fnt-main-dark">SWIPE BELOW TO VIEW DIFFERENT PROJECTS</p>
+    <p class="swipe-message fnt-main-dark" v-show="isMobile">SWIPE BELOW TO VIEW DIFFERENT PROJECTS</p>
 
     <!-- PROJECT SWIPER -->
-    <div class="bdr-main" id="projects">
-      <div class="swiper" @mouseenter="showInfo()" @mouseleave="hideInfo()">
+    <div
+      class="bdr-main"
+      id="projects"
+      @mouseenter="showInfo = true"
+      @mouseleave="showInfo = false"
+    >
+      <div class="swiper">
 
+        <!-- CONTENT -->
         <div class="swiper-wrapper">
-          <div class="swiper-slide fnt-background" v-for="project in projects">
-
-            <!-- IMAGE (mobile only) -->
-            <img class="mobile-image" :src="project.imgPath"/>
-
-            <!-- TEXT -->
-            <div class="text-container front">
-              <h3 class="project-title">{{ project.title }}</h3>
-              <p class="text front" v-for="paragraph in project.description">{{ paragraph }}</p>
-              <a
-                class="btn thm-button"
-                v-show="!!project.link"
-                :href="project.link"
-              >View Project</a>
-            </div>
-
-            <!-- IMAGES (desktop only - cover image is for the hover effect) -->
-            <img class="cover-image" :src="project.coverImgPath"/>
-            <img class="back" :src="project.imgPath"/>
-
+          <div class="swiper-slide" v-for="project in projects">
+            <vue-project class="desktop-project" :project="project" :show-info="showInfo"/>
+            <mobile-project class="mobile-project" :project="project"/>
           </div>
         </div>
 
         <!-- NAV ARROWS -->
         <div
-          class="swiper-button-next fnt-background"
+          v-if="!isMobile"
+          class="swiper-button-next fnt-main-light"
           @mouseenter="runShadeTween(NEXT_CLASS)"
-          @mouseleave="reverseShadeTween(NEXT_CLASS, HIDDEN_OPACITY)"
+          @mouseleave="reverseShadeTween(NEXT_CLASS)"
         />
         <div
-          class="swiper-button-prev fnt-background"
+          v-if="!isMobile"
+          class="swiper-button-prev fnt-main-light"
           @mouseenter="runShadeTween(PREV_CLASS)"
-          @mouseleave="reverseShadeTween(PREV_CLASS, HIDDEN_OPACITY)"
+          @mouseleave="reverseShadeTween(PREV_CLASS)"
         />
 
       </div>
     </div>
-
-    <vue-br/>
 
     <p>
       There are even more projects that I have worked on. They have been omitted because they are rather "informal" for a
@@ -63,7 +52,7 @@
 <script setup lang="ts">
   import gsap from 'gsap';
   import Swiper, { Navigation, Pagination } from 'swiper';
-  import { onMounted } from 'vue';
+  import { onMounted, ref, type Ref } from 'vue';
   import { Project, Projects } from './Projects';
 
   import 'swiper/css';
@@ -72,33 +61,24 @@
 
   Swiper.use([Navigation, Pagination]);
 
-  // Opacities for hover effects:
-  const HIDDEN_OPACITY: string = "50%"
-  const TEXT_HIDDEN_OPACITY: string = "20%"
-
-  // Classes for easy access
-  const IMG_CLASS: string = ".cover-image"
-  const TITLE_CLASS: string = ".project-title"
-  const TEXT_CLASS: string = ".text"
   const NEXT_CLASS: string = ".swiper-button-next"
   const PREV_CLASS: string = ".swiper-button-prev"
 
   const projects: Project[] = Projects
 
+  // Whether or not the client is detected to be using a mobile device
+  const isMobile: boolean = !!navigator.userAgent.match(/Android/i) ||
+    !!navigator.userAgent.match(/BlackBerry/i) ||
+    !!navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
+    !!navigator.userAgent.match(/Opera Mini/i) ||
+    !!navigator.userAgent.match(/IEMobile/i)
+
   let swiper: Swiper | null = null
 
-  /**
-   * The blurred image animation
-   */
-  function runImgTween() {
-    gsap.to(
-      IMG_CLASS,
-      {
-        duration: 0.5,
-        opacity: "100%"
-      }
-    )
-  }
+  // Whether or not the info related to the current project should be displayed to the user
+  // Essentially, whether or not the user is hovering the cursor over the swiper
+  const showInfo: Ref<boolean> = ref(false)
+  
   /**
    * Text opacity/shading animation for hovering
    * 
@@ -115,80 +95,34 @@
       }
     )
   }
-
-  /**
-   * Tween animation reversal functions:
-   */
-  function reverseImgTween() {
-    gsap.to(
-      IMG_CLASS,
-      {
-        duration: 0.5,
-        opacity: 0
-      }
-    )
-  }
-  function reverseShadeTween(cssClass: string, opacity: string) {
+  function reverseShadeTween(cssClass: string) {
     gsap.to(
       cssClass,
       {
         duration: 0.5,
-        opacity: opacity,
+        opacity: "50%",
         textShadow: "none"
       }
     )
   }
 
   /**
-   * Making the text more/less visible for hovering
+   * Swiper navigation arrows should only exist on desktop
    */
-  function showInfo() {
-    runImgTween()
-    runShadeTween(TITLE_CLASS)
-    runShadeTween(TEXT_CLASS)
-  }
-  function hideInfo() {
-    reverseImgTween()
-    reverseShadeTween(TITLE_CLASS, HIDDEN_OPACITY)
-    reverseShadeTween(TEXT_CLASS, TEXT_HIDDEN_OPACITY)
-  }
-
-  onMounted(() =>
+  onMounted(() => {
     swiper = new Swiper(".swiper", {
       loop: true,
       cssMode: true,
       simulateTouch: false,
-      navigation: {
+      navigation: isMobile ? {} : {
         nextEl: NEXT_CLASS,
         prevEl: PREV_CLASS,
-      },
-      breakpoints: {
-        992: {
-          navigation: {}
-        }
       }
     })
-  )
+  })
 </script>
   
 <style scoped>
-  img {
-    width: inherit;
-    height: 60vh;
-    object-fit: cover;
-  }
-
-  a {
-    display: block;
-    padding: 5px 30px;
-    width: 175px;
-    margin: 10px auto;
-  }
-
-  h3, .text {
-    text-align: center;
-  }
-
   #projects {
     margin: 20px 100px;
     padding: 10px;
@@ -201,12 +135,7 @@
     padding: 20px 0 100px 0;
   }
 
-  .cover-image {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .mobile-image {
+  .mobile-project {
     display: none;
   }
 
@@ -220,51 +149,23 @@
     font-weight: bold;
   }
 
-  .text {
-    opacity: 20%;
-    padding: 5px 100px;
-  }
-
-  .text-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-  }
-
   @media (max-width: 992px) {
-    img {
-      display: none;
-    }
-
-    h3, .text {
-      color: #262425;
-      opacity: 100%;
-      padding: 5px 10px;
-    }
-
     #projects {
       margin: 20px 0;
       padding: 10px 0;
       border: none;
     }
 
-    .mobile-image {
-      display: block;
-    }
-
     .swipe-message {
       display: block;
     }
 
-    .text-container {
-      position: static;
+    .desktop-project {
+      display: none;
     }
 
-    .swiper-button-next, .swiper-button-prev {
-      display: none;
+    .mobile-project {
+      display: block;
     }
   }
 </style>

@@ -235,13 +235,21 @@
   }
 
   @media (max-width: 992px) {
+    p, ul {
+      font-size: 10pt;
+    }
+
     p {
       margin: 0;
-      padding: 5px 25px;
+      padding: 5px 10px;
     }
 
     ul {
-      padding: 10px 10px 10px 25px;
+      padding: 10px 10px 10px 30px;
+    }
+
+    ul li ul {
+      padding: 10px 10px 10px 20px;
     }
   }
 </style>
