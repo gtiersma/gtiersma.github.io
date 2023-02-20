@@ -13,16 +13,18 @@
   </svg>
 
   <!-- GIANT BACKGROUND ICONS -->
-  <fa-icon
-    class="icon fnt-background-dark back"
-    id="chip"
-    icon="fa-solid fa-microchip"
-  />
-  <fa-icon
-    class="icon fnt-background-dark back"
-    id="wrench"
-    icon="fa-solid fa-wrench"
-  />
+  <div class="icon-container">
+    <fa-icon
+      class="icon fnt-background-dark back"
+      id="chip"
+      icon="fa-solid fa-microchip"
+    />
+    <fa-icon
+      class="icon fnt-background-dark back"
+      id="wrench"
+      icon="fa-solid fa-wrench"
+    />
+  </div>
 
 </template>
   
@@ -76,18 +78,27 @@
   
 <style scoped>
 #chip {
-  top: 15vh;
-  left: 30%;
+  left: 0;
+  top: 0;
 }
 
 #wrench {
-  top: 25vh;
-  left: 40%;
+  right: 0;
+  bottom: 0;
+}
+
+.icon-container {
+  position: absolute;
+  width: 33%;
+  height: 45%;
+  left: 33%;
+  top: 23%;
 }
 
 .icon {
   position: absolute;
-  font-size: 256pt;
+  width: 75%;
+  height: 75%;
   filter: drop-shadow(0 0 10px #a73b0c);
 }
 
@@ -110,18 +121,6 @@
 @media (max-width: 767px) {
   .svg {
     display: none;
-  }
-
-  .icon {
-    font-size: 128pt;
-  }
-
-  #chip {
-    left: 20%;
-  }
-
-  #wrench {
-    left: 25%;
   }
 }
 </style>
