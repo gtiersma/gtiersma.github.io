@@ -1,7 +1,7 @@
 <template>
   <div id="title-bar" class="navbar navbar-expand-sm thm-main far-far-front">
     <div class="navbar-header">
-      <a class="navbar-brand fnt-text-dark" @click="toPageTop()">George Tiersma - Fullstack Software Engineer</a>
+      <a class="navbar-brand fnt-text-dark" @click="toPageTop()">George Tiersma - Full-stack Software Engineer</a>
     </div>
   </div>
 
@@ -10,7 +10,7 @@
     <title-background :height-watcher="heightWatcher"/>
 
     <h1 class="title fnt-text-dark">George Tiersma</h1>
-    <h1 id="bottom-title" class="title fnt-text-dark">Fullstack Software Engineer</h1>
+    <h1 id="bottom-title" class="title fnt-text-dark">Full-stack Software Engineer</h1>
 
     <a class="btn thm-button far-front" href="/resume.pdf">View Resume</a>
 

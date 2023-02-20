@@ -9,11 +9,11 @@
         <p>
           My name is George Tiersma. Living in Oregon, I work remotely with specialty
           photo-management software at <a href="https://digitalfusion.net">DigitalFusion</a>, located
-          in Las Angeles. The software I work on is known as
+          in Los Angeles. The software I work on is known as
           <a href="https://www.dfstudio.com">DF Studio</a>.
         </p>
         <p>
-          Being a fullstack engineer, I work with the user interface, the database and
+          Being a full-stack engineer, I work with the user interface, the database and
           everything in between on a regular basis.
         </p>
         <p>
