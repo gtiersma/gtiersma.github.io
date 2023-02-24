@@ -27,7 +27,7 @@
       </vue-faq>
       <vue-faq question="How do you approach software engineering?" :id="2">
         <p>
-          I am still always learning, but to the best of my current knowledge, this is my approach:
+          To the best of my current knowledge, this is my approach:
         </p>
         <vue-br/>
         <p>
@@ -38,7 +38,7 @@
             Externally, how should the end user provide the necessary input (if any)?
           </li>
           <li>
-            Internally, what actions should be performed with the recieved input to generate the
+            Internally, what actions should be performed with the received input to generate the
             correct output?
           </li>
           <li>
@@ -58,7 +58,7 @@
           sacrifice readability for stability or performance.
         </p>
         <p>
-          For example, generally I always will prefer to use a <code>forEach()</code> extension
+          For example, generally, I always will prefer to use a <code>forEach()</code> extension
           function in languages where it is available to keep the code minimal and readable. However,
           if I am working in a location where performance may be a concern (such as within multiple
           nested loops), I may prefer to use a basic <code>for</code> loop to have better control over
@@ -87,14 +87,14 @@
             </ul>
           </li>
           <li>
-            I am unusually cooperative. I have dealt with teammates that are frustrated. I approach
-            the situation calmly and with professionalism. I do what I can to keep the team together
-            (even if it involves that I volunteer for unfair treatment), because I believe a broken
-            team can have a devistating impact.
+            I am unusually cooperative. I have dealt with frustrated teammates by approaching the
+            situation calmly and with professionalism. I do what I can to keep the group together
+            (even if it involves that I volunteer for unfair treatment), because a broken team can
+            have a devastating impact.
           </li>
           <li>
-            Instead of just mindlessly building what I am told, I always put myself in the shoes of
-            the end user. I ask myself, "What would I want to see and do if I were to personally use
+            Instead of just mindlessly building what I am told, I always put myself in the end user's
+            shoes. I ask myself, "What would I want to see and do if I were to personally use
             this?". I let the answer to that question guide my progression.
           </li>
         </ul>
@@ -102,7 +102,8 @@
       <vue-faq question="What drives your passion for software?" :id="4">
         <p>
           It is the idea that I am working on a part of something that will be used to help thousands
-          of others. This keeps me serious about my work and focused on delivering a quality product.
+          of others. This idea keeps me serious about my work and focused on delivering a quality
+          product.
         </p>
         <p>
           Also, I have always found enjoyment in orderly mathematics and solving technical problems
@@ -112,16 +113,17 @@
       </vue-faq>
       <vue-faq question="What would you say makes for quality code?" :id="5">
         <p>
-          I am always learning and have much experience yet to gain, but to the best of my knowledge,
-          this is how I would answer the question:
+          To the best of my knowledge and experience, I consider the following factors to be of much
+          importance:
         </p>
         <ul>
           <li>
-            Most of all, it needs to actually work. It should do what it is intended to do well.
+            First of all, it needs to actually work. It should perform what it is intended to do, and
+            it should do it well.
           </li>
           <li>
             Secondly, it needs to be fully understandable. Not only for other developers,
-            but also for when the one who programmed it has to revisit it again later.
+            but also for when the one who programmed it has to revisit it later.
           </li>
           <li>
             Thirdly, it should not be a resource hog. Nested loops can be deadly. It can be
@@ -174,8 +176,8 @@
         <ul>
           <li>
             <b>Kotlin</b> is currently my favorite language because of how easy it can make for clean
-            code. This is mostly thanks to the many extension functions it includes. I also like how I
-            can easily create my own extension functions.
+            code. This is primarily thanks to the many extension functions it includes. I also like how I
+            can easily create extension functions.
           </li>
           <li>
             <b>Vue</b> is great. Having a component-based library such as Vue is so much more
@@ -187,7 +189,7 @@
           </li>
           <li>
             JetBrain's <b>IntelliJ</b> is the best IDE I have used to date. It can have an occasional
-            odd bug, but some of the features it has can save a lot of time.
+            odd bug, but some of its features can save a lot of time.
           </li>
           <li>
             As for lightweight IDEs, <b>VSCode</b> is an excellent tool. For such a simple program, it can
@@ -198,14 +200,14 @@
       <vue-faq question="What else can I do?" :id="9">
         <p>
           As I work a full-stack job, I am also familiar with the basics of UI/UX design as well as
-          database design. I have created plenty of different SQL statements in the past to query or
-          safely update complicated sets of data.
+          database design. I have created plenty of different SQL statements to query or safely update
+          complicated data.
         </p>
         <p>
           Outside of work, Photoshop is a past-time I really enjoy when I am not programming. Over time, 
-          I have learned how to composite images together to make virtually anything look like
-          reality. I also like to hand-draw pictures, scan them to my PC, and add color, texture, light
-          and other details to them through image-editing software.
+          I have learned how to composite images to make virtually anything look real. I also like to
+          hand-draw pictures, scan them to my PC, and add color, texture, light and other details to them
+          through image-editing software.
         </p>
       </vue-faq>
     </div>

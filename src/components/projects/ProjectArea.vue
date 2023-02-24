@@ -1,6 +1,6 @@
 <template>
   <div id="project-area" class="fnt-text-dark">
-    <h2 class="fnt-main-dark">Work that I have done</h2>
+    <h2 class="fnt-main-dark">My Work</h2>
 
     <vue-br/>
     

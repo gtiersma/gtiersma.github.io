@@ -10,10 +10,10 @@
       <a class="nav-link fnt-text-light" @click="faqArea?.scrollIntoView()">About Me</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link fnt-text-light" @click="projectArea?.scrollIntoView()">Work I Do</a>
+      <a class="nav-link fnt-text-light" @click="projectArea?.scrollIntoView()">My Work</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link fnt-text-light" @click="skillArea?.scrollIntoView()">Tech I Know</a>
+      <a class="nav-link fnt-text-light" @click="skillArea?.scrollIntoView()">Tech I Use</a>
     </li>
     <li class="nav-item">
       <a class="nav-link fnt-text-light" @click="contactArea?.scrollIntoView()">Contact</a>

@@ -26,7 +26,7 @@ export const Projects: Project[] = [
     "df-studio.jpg",
     [
       "\
-DF Studio is a cloud-based, web application built by DigitalFusion Creative Inc. Its purpose is to \
+DF Studio is a cloud-based web application built by DigitalFusion Creative Inc. Its purpose is to \
 provide for basic management, archival, distribution and communication of photos in a secure and \
 efficient manner. It is a B2B software subscription popular among businesses in the entertainment/\
 film industry.\
@@ -66,7 +66,7 @@ SandPaper was built using Java 8 with the JavaFx library for the GUI and 3D obje
       ",
       "\
 I also created a beginner-level tutorial PDF (close to 50 pages) explaining with simple \
-terminology how to use the program.\
+terminology on how to use the program.\
       "
     ],
     "https://github.com/gtiersma/sand-paper"
