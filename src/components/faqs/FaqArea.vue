@@ -27,10 +27,6 @@
       </vue-faq>
       <vue-faq question="How do you approach software engineering?" :id="2">
         <p>
-          To the best of my current knowledge, this is my approach:
-        </p>
-        <vue-br/>
-        <p>
           When creating new software or features, I will generally plan for three considerations:
         </p>
         <ul>
@@ -46,10 +42,9 @@
           </li>
         </ul>
         <p>
-          After I have these questions answered (whether by myself or by the opinions of others),
-          I begin to plan for how the data should flow through the stack. Once I have a general
-          plan of how to progress, I then begin programming the most basic functionality, and
-          continue progressing from there.
+          After I reach a conclusion with these questions, I begin to plan for how the data should flow
+          through the stack. Once I have a general plan of how to progress, I then begin programming the
+          most basic functionality, and continue progressing from there.
         </p>
         <vue-br/>
         <p>
@@ -72,8 +67,8 @@
       <vue-faq question="What makes you different?" :id="3">
         <ul>
           <li>
-            I would think that I prioritize clean and understandable code more than most developers.
-            I focus greatly on the following:
+            I prioritize clean and understandable code more than most developers. I focus greatly on the
+            following:
             <ul class="sub-ul">
               <li>
                 Naming variables & methods in a way that most developers would be able to understand
@@ -87,10 +82,9 @@
             </ul>
           </li>
           <li>
-            I am unusually cooperative. I have dealt with frustrated teammates by approaching the
-            situation calmly and with professionalism. I do what I can to keep the group together
-            (even if it involves that I volunteer for unfair treatment), because a broken team can
-            have a devastating impact.
+            I am incredibly. I have dealt with frustrated teammates by approaching the situation calmly
+            and with professionalism. I do what I can to keep the group together (even if it involves that
+            I volunteer for unfair treatment), because a broken team can have a devastating impact.
           </li>
           <li>
             Instead of just mindlessly building what I am told, I always put myself in the end user's
@@ -113,8 +107,7 @@
       </vue-faq>
       <vue-faq question="What would you say makes for quality code?" :id="5">
         <p>
-          To the best of my knowledge and experience, I consider the following factors to be of much
-          importance:
+          Based on my knowledge and experience, I consider the following factors to be of much importance:
         </p>
         <ul>
           <li>
