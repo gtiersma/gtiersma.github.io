@@ -144,6 +144,10 @@ h3, p {
   text-align: center;
 }
 
+h3 {
+  padding-left: 0;
+}
+
 .text-container {
   position: absolute;
   display: flex;
