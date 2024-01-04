@@ -20,7 +20,6 @@
     <vue-skills title="IDEs" :skills="ides"/>
     <vue-skills title="Version Control" :skills="versions"/>
     <vue-skills title="Graphics" :skills="graphics"/>
-    <vue-skills title="Operating Systems" :skills="oses"/>
     <vue-skills title="Other Software" :skills="others"/>
   </divided-section>
 </template>
@@ -35,7 +34,6 @@ import {
   Graphics,
   Versions,
   Databases,
-  Oses,
   Others
 } from './Skills';
 
@@ -49,7 +47,6 @@ const ides: Skill[] = Ides
 const graphics: Skill[] = Graphics
 const versions: Skill[] = Versions
 const databases: Skill[] = Databases
-const oses: Skill[] = Oses
 const others: Skill[] = Others
 </script>
 

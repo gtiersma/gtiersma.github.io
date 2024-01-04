@@ -24,20 +24,17 @@ export const Languages: Skill[] = [
   new Skill("CSS", "css"),
   new Skill("SQL", "sql"),
   new Skill("Microsoft Visual Basic", "visual_basic"),
-  new Skill("C++", "c_plus_plus", true),
-  new Skill("C#", "c_sharp", true)
+  new Skill("C#/.NET", "c_sharp", true)
 ]
 
 export const Libraries: Skill[] = [
   new Skill("JavaFx", "java_fx"),
   new Skill("Vue", "vue"),
   new Skill("Vue Class Component", "vue_class_component"),
-  new Skill("Vue Router", "vue_router", true),
+  new Skill("Vue Router", "vue_router"),
   new Skill("jQuery", "j_query"),
   new Skill("Bootstrap", "bootstrap", true),
-  new Skill("Tippy", "tippy"),
-  new Skill("GreenSock GSAP", "gsap"),
-  new Skill("Node Js", "node", true)
+  new Skill("GreenSock GSAP", "gsap")
 ]
 
 export const Ides: Skill[] = [
@@ -50,7 +47,6 @@ export const Ides: Skill[] = [
 
 export const Graphics: Skill[] = [
   new Skill("Adobe PhotoShop", "photo_shop"),
-  new Skill("Adobe LightRoom", "light_room"),
   new Skill("Krita", "krita", true),
   new Skill("GIMP", "gimp"),
   new Skill("Inkscape", "inkscape", true),
@@ -69,18 +65,10 @@ export const Databases: Skill[] = [
   new Skill("Various Data-Modeling Software", "data_modeling")
 ]
 
-export const Oses: Skill[] = [
-  new Skill("Microsoft Windows", "windows"),
-  new Skill("Apple Mac OS", "mac_os"),
-  new Skill("Android", "android"),
-  new Skill("Ubuntu", "ubuntu")
-]
-
 export const Others: Skill[] = [
   new Skill("Vite", "vite"),
   new Skill("Node Packet Manager", "npm"),
   new Skill("Yarn", "yarn", true),
-  new Skill("AWS", "aws", true),
   new Skill("Microsoft Office Suite", "office"),
   new Skill("Audacity", "audacity"),
   new Skill("HxD", "hxd"),

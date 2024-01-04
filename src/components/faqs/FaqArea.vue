@@ -13,16 +13,14 @@
           <a href="https://www.dfstudio.com">DF Studio</a>.
         </p>
         <p>
-          Being a full-stack engineer, I work with the user interface, the database and
-          everything in between on a regular basis.
+          The architecture I build is something I take pride in. By fixing, modernizing,
+          and rebuilding numerous different portions of the customer-facing product,
+          internal tools, and scalable and reusable utilities, I always do my best to produce clean,
+          quality code.
         </p>
         <p>
-          Most of the work I have done involves the creation of backend tools. Many of the tools I have developed
-          have been of great use to the other developers, as well as the technical support team.
-        </p>
-        <p>
-          I have also spent quite a bit of time upgrading and cleaning outdated code to modern
-          standards.
+          Outside of work, I enjoy building and contributing to open-source software tools once in a
+          while as well.
         </p>
       </vue-faq>
       <vue-faq question="How do you approach software engineering?" :id="2">
@@ -49,8 +47,8 @@
         <vue-br/>
         <p>
           When working with finer details (such as bug fixes and small improvements), the focus is on
-          keeping the changes I made legible (or documented). However, there may be rare cases where I will
-          sacrifice readability for stability or performance.
+          keeping the changes I made legible (or documented). However, there may be rare cases where I
+          will sacrifice readability for stability or performance.
         </p>
         <p>
           For example, generally, I always will prefer to use a <code>forEach()</code> extension
@@ -82,9 +80,10 @@
             </ul>
           </li>
           <li>
-            I am incredibly. I have dealt with frustrated teammates by approaching the situation calmly
-            and with professionalism. I do what I can to keep the group together (even if it involves that
-            I volunteer for unfair treatment), because a broken team can have a devastating impact.
+            I am incredibly cooperative. I have dealt with frustrated teammates by approaching the
+            situation calmly and with professionalism. I do what I can to keep the group together
+            (even if it involves that I volunteer for unfair treatment), because a broken team can
+            have a devastating impact.
           </li>
           <li>
             Instead of just mindlessly building what I am told, I always put myself in the end user's
@@ -116,11 +115,13 @@
           </li>
           <li>
             Secondly, it needs to be fully understandable. Not only for other developers,
-            but also for when the one who programmed it has to revisit it later.
+            but also for when the one who programmed it revisits it in the future.
           </li>
           <li>
             Thirdly, it should not be a resource hog. Nested loops can be deadly. It can be
-            good to limit the number of iterations however possible in those cases.
+            good to limit the number of iterations however possible in those cases. Also considering
+            the amount of data that may be involved is important as well. Software can work well with
+            a small amount of data, but what if the user expects it to support thousands of instances?
           </li>
         </ul>
       </vue-faq>
@@ -150,7 +151,7 @@
           </li>
           <li>
             <a href="https://en.wikipedia.org/wiki/Test-driven_development">
-              Test-Driven Development (TDP)
+              Test-Driven Development (TDD)
             </a>
           </li>
           <li>
@@ -160,9 +161,10 @@
           </li>
           <li>
             <a href="https://en.wikipedia.org/wiki/Functional_programming">
-              Functional Programming (Including Purely Functional Programming)
+              Functional Programming
             </a>
           </li>
+          <li>Several Basic Design Patterns</li>
         </ul>
       </vue-faq>
       <vue-faq question="What are your favorite programming languages & tools?" :id="8">
