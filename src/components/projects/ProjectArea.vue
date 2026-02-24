@@ -51,7 +51,8 @@
   
 <script setup lang="ts">
   import gsap from 'gsap';
-  import Swiper, { Navigation, Pagination } from 'swiper';
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
   import { onMounted, ref, type Ref } from 'vue';
   import { Project, Projects } from './Projects';
 
